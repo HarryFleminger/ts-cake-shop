@@ -1,1 +1,15 @@
-<h1>connected!</h1>
+<div class="container">
+  <h1>Products</h1>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <%= link_to "More details", product_path(product), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
