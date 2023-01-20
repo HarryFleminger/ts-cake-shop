@@ -1,0 +1,8 @@
+<div class="container mt-4">
+  <%= simple_form_for (@product) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price_cents %>
+    <%= f.button :submit, "Edit Product" %>
+  <% end %>
+</div>
