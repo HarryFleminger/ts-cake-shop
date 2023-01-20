@@ -6,6 +6,8 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
+            <img class="card-image" src="https://i.pinimg.com/originals/e2/b6/57/e2b657615924fd6eeee483028573d7d0.jpg" alt="cake">
+            <p class="card-price">Price: <%= humanized_money_with_symbol(product.price) %></p>
             <%= link_to "More details", product_path(product), class: "btn btn-primary" %>
           </div>
         </div>
