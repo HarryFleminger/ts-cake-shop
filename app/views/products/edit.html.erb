@@ -5,4 +5,8 @@
     <%= f.input :price_cents %>
     <%= f.button :submit, "Edit Product" %>
   <% end %>
+
+  <%=link_to product_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
 </div>
