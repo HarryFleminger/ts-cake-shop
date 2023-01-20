@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>My Orders</h1>
+  <div class="row">
+  <% orders = current_user.orders %>
+    <% orders.each do |order| %>
+     <h5><%= order.user_id %></h5>
+    <% end %>
+  </div>
+</div>

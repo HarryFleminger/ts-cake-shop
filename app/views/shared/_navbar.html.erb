@@ -23,9 +23,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item" %>
+              <%= link_to "My orders", "/orders", class: "dropdown-item" %>
               <%= link_to "Edit my Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "My orders", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
