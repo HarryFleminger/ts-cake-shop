@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Generating cakes!"
-cheese_cake = Product.create(name: "Cheese Cake", price_cents: 15000, description: "Cheesy goodnes")
-sponge_cake = Product.create(name: "Sponge Cake", price_cents: 10000, description: "Spongey")
-victoria_cake = Product.create(name: "Victoria Cream Cake", price_cents: 5000, description: "Creamy victorianus")
+cheese_cake = Product.create(name: "Cheese Cake", sku: "original-cheese-cake", price_cents: 15000, description: "Cheesy goodnes")
+sponge_cake = Product.create(name: "Sponge Cake", sku: "spunge-cake", price_cents: 10000, description: "Spongey")
+victoria_cake = Product.create(name: "Victoria Cream Cake", sku: "victoria-cake", price_cents: 5000, description: "Creamy victorianus")
 
 puts "Generating main user"
 main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "ben.franky@hotmail.com", password: 123456)
