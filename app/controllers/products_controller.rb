@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
 
     if current_order.products.where(name: "Cheese Cake").present?
       new_line_item = LineItem.joins(:product).where("products.name = ?", "Cheese Cake").first
-      new_line_item.quantity += product_quantity.to_i
+      new_line_item.quantity = product_quantity.to_i
       new_line_item.save
     else
       new_line_item = LineItem.create(quantity: product_quantity)

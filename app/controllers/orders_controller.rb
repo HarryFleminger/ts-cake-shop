@@ -19,7 +19,22 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(order)
   end
 
+  def update_quantity
+    current_order = current_user.orders.where(state: 'pending').first
+    current_line_item = LineItem.find(product_params[:id])
+    current_line_item.quantity = product_params["line_items"]["quantity"].to_i
+    current_line_item.save
+    redirect_to order_path(current_order)
+  end
+
   def show
     @order = current_user.orders.where(state: 'pending').find(params[:id])
+    @line_item = LineItem.new
+  end
+
+  private
+
+  def product_params
+    params.require(:line_item).permit(:id, line_items: [:quantity])
   end
 end
