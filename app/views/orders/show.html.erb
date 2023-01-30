@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Products</h1>
+  <div class="row">
+    <% @order.line_items.each do |item| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= item.product.name %></h5>
+            <img class="card-image" src="https://i.pinimg.com/originals/e2/b6/57/e2b657615924fd6eeee483028573d7d0.jpg" alt="cake">
+            <p class="card-price">Quantity: <%= item.quantity %></p>
+            <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= form_with url: orders_path do %>
+    <%= hidden_field_tag 'order_id', @order.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
