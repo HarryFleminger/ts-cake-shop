@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @line_item = LineItem.new
   end
 
   def new
@@ -41,9 +42,29 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def add_to_basket
+    current_order = current_user.orders.where(state: 'pending').first
+    current_product = Product.find(product_params[:id])
+
+    line_item_params = product_params[:line_items_attributes]
+    product_quantity = line_item_params["0"][:quantity]
+
+    if current_order.products.where(name: "Cheese Cake").present?
+      new_line_item = LineItem.joins(:product).where("products.name = ?", "Cheese Cake").first
+      new_line_item.quantity += product_quantity.to_i
+      new_line_item.save
+    else
+      new_line_item = LineItem.create(quantity: product_quantity)
+      new_line_item.order = current_order
+      new_line_item.product = current_product
+      new_line_item.save
+    end
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price_cents)
+    params.require(:product).permit(:name, :description, :price_cents, :id, line_items_attributes: [:quantity])
   end
+
 end

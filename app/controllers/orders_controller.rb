@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        price: 5,
+        price: price_cents,
         quantity: 1
       }],
       success_url: order_url(order),
@@ -20,6 +20,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = current_user.orders.where(state: 'pending').find(params[:id])
   end
 end

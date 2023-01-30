@@ -4,10 +4,13 @@
       <h1><%= @product.name %></h1>
       <p><%=@product.description  %></p>
       <p>Amount<%= @product.price %></p>
-      <%= form_with url: orders_path do %>
-      <%= hidden_field_tag 'teddy_id', @teddy.id %>
-      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
+      <%= simple_form_for @product, url: add_to_basket_path, method: :post do |f| %>
+        <%= f.hidden_field :id %>
+          <%= f.simple_fields_for :line_items do |p| %>
+          <%= p.input :quantity %>
+          <% end %>
+        <%= f.submit "Add to Basket" %>
+      <% end %>
     </div>
   </div>
 </div>
