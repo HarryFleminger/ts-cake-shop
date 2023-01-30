@@ -1,0 +1,9 @@
+<% @order.products.each do |product| %>
+  <%= product.name %>
+  <%= product.name %>
+<% end %>
+<%= @order.amount_cents %>
+<%= form_with url: orders_path do %>
+  <%= hidden_field_tag 'product_id', @order.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>

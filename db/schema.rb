@@ -53,6 +53,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_102455) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "product_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_102455) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
