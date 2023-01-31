@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   has_many :orders, through: :line_items
   has_one_attached :photo
   monetize :price_cents
+  accepts_nested_attributes_for :line_items
 end
