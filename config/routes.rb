@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :orders do
     resources :payments, only: :new
     post 'orders/update_quantity', to: 'orders#update_quantity', as: :update_quantity
+    get 'orders/order_completed/:order_id', to: 'orders#order_completed', as: :order_completed
+    get 'orders/order_failed/:order_id', to: 'orders#order_failed', as: :order_failed
   end
 end

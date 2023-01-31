@@ -1,20 +1,26 @@
 class OrdersController < ApplicationController
+  include Rails.application.routes.url_helpers
+
   def index
   end
 
   def create
     order = Order.find(params[:order_id])
-    product = order.line_items.first.product
+    line_items = []
+    order.line_items.each do |item|
+      line_items << {
+        name: item.product.name,
+        amount: item.product.price_cents,
+        currency: 'gbp',
+        quantity: item.quantity
+      }
+    end
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: [{
-        price: price_cents,
-        quantity: 1
-      }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      line_items: line_items,
+      success_url: order_order_completed_url(order),
+      cancel_url: order_order_failed_url(order)
     )
-
     order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(order)
   end
@@ -30,6 +36,15 @@ class OrdersController < ApplicationController
   def show
     @order = current_user.orders.where(state: 'pending').find(params[:id])
     @line_item = LineItem.new
+  end
+
+  def order_completed
+    @order = Order.find(params[:order_id])
+    raise
+  end
+
+  def order_failed
+    @order = Order.find(params[:order_id])
   end
 
   private
