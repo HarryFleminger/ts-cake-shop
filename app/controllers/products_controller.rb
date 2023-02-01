@@ -48,9 +48,8 @@ class ProductsController < ApplicationController
 
     line_item_params = product_params[:line_items_attributes]
     product_quantity = line_item_params["0"][:quantity]
-
-    if current_order.products.where(name: "Cheese Cake").present?
-      new_line_item = LineItem.joins(:product).where("products.name = ?", "Cheese Cake").first
+    if current_order.products.where(name: "#{current_product.name}").present?
+      new_line_item = LineItem.joins(:product).where("products.name = ?", "#{current_product.name}").first
       new_line_item.quantity = product_quantity.to_i
       new_line_item.save
     else
