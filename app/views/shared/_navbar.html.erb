@@ -17,7 +17,7 @@
           <li class="nav-item">
             <%= link_to "Cakes!", "/products", class: "nav-link" %>
           </li>
-          <% if current_user.orders.present? %>
+          <% if current_user.orders.where(state: 'pending').last.line_items.present? %>
             <li class="nav-item">
               <%= link_to "My basket", "/orders/#{current_user.orders.last.id}", class: "nav-link" %>
             </li>
