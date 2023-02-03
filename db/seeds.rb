@@ -6,36 +6,36 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Generating cakes!"
-cheese_cake = Product.create(name: "Cheese Cake", sku: "original-cheese-cake", price: 15, description: "Cheesy goodnes")
-sponge_cake = Product.create(name: "Sponge Cake", sku: "spunge-cake", price: 10, description: "Spongey")
-victoria_cake = Product.create(name: "Victoria Cream Cake", sku: "victoria-cake", price: 5, description: "Creamy victorianus")
+cheese_cake = Product.create(name: "Cheese Cake", price: 15, description: "Cheesy goodnes")
+sponge_cake = Product.create(name: "Sponge Cake", price: 10, description: "Spongey")
+victoria_cake = Product.create(name: "Victoria Cream Cake", price: 5, description: "Creamy victorianus")
 
 puts "Generating main user"
-main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "ben.franky@hotmail.com", password: 123456)
+main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "harry.fleminger@hotmail.com", password: 123456)
 
-puts "Creating order for main user"
-an_order = Order.new
-an_order.state = "pending"
-an_order.user = main_user
-an_order.save
+# puts "Creating order for main user"
+# an_order = Order.new
+# an_order.state = "pending"
+# an_order.user = main_user
+# an_order.save
 
-puts "Creating line_items for basket"
-line1 = LineItem.new
-line1.order = an_order
-line1.product = cheese_cake
-line1.quantity = 2
-line1.save
+# puts "Creating line_items for basket"
+# line1 = LineItem.new
+# line1.order = an_order
+# line1.product = cheese_cake
+# line1.quantity = 2
+# line1.save
 
-line2 = LineItem.new
-line2.order = an_order
-line2.product = sponge_cake
-line2.quantity = 4
-line2.save
+# line2 = LineItem.new
+# line2.order = an_order
+# line2.product = sponge_cake
+# line2.quantity = 4
+# line2.save
 
-line3 = LineItem.new
-line3.order = an_order
-line3.product = victoria_cake
-line3.quantity = 1
-line3.save
+# line3 = LineItem.new
+# line3.order = an_order
+# line3.product = victoria_cake
+# line3.quantity = 1
+# line3.save
 
-puts "A seed's happy ending. It was succesfull!"
+# puts "A seed's happy ending. It was succesfull!"

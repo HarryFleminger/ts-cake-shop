@@ -4,12 +4,9 @@
       <h1><%= @product.name %></h1>
       <p><%=@product.description  %></p>
       <p>Amount<%= @product.price %></p>
-      <%= simple_form_for @product, url: add_to_basket_path, method: :post do |f| %>
-          <%= f.hidden_field :id %>
-          <%= f.simple_fields_for :line_items do |p| %>
-            <%= p.input :quantity, collection: 1..5, prompt: "Select your age", selected: 1 %>
-          <% end %>
-        <%= f.submit "Add to Basket" %>
+      <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
+      <%= f.input :quantity %>
+      <%= f.submit %>
       <% end %>
     </div>
   </div>

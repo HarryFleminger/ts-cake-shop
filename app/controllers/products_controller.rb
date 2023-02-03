@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to product_path(@product)
     else
-      rrender :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
