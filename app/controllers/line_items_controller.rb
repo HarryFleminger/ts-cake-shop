@@ -4,9 +4,16 @@ class LineItemsController < ApplicationController
     current_order = current_user.orders.where(state: 'pending').last
     line_item = LineItem.find(product_params.to_i)
     line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to current_order, notice: 'Line item was successfully destroyed.' }
-      format.js { render }
+    if current_order.line_items.empty?
+      respond_to do |format|
+        format.html { redirect_to products_path, notice: 'Line item was successfully destroyed.' }
+        format.js { render }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to current_order, notice: 'Line item was successfully destroyed.' }
+        format.js { render }
+      end
     end
   end
 

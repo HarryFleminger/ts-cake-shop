@@ -5,8 +5,8 @@
       <p><%=@product.description  %></p>
       <p>Amount<%= @product.price %></p>
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
-      <%= f.input :quantity %>
-      <%= f.submit %>
+      <%= f.input :quantity, collection: 1..10, selected: 1 %>
+      <%= f.submit "Add to basket" %>
       <% end %>
     </div>
   </div>
