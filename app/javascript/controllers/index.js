@@ -7,5 +7,5 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import LineItemController from "./line_item_controller"
-application.register("line-item", LineItemController)
+import IncrementsController from "./increments_controller"
+application.register("increments", IncrementsController)
