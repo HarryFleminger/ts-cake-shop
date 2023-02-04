@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def index
+    @orders = current_user.orders
   end
 
   def create
@@ -34,13 +35,14 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders.where(state: 'pending').last
-    @line_item = LineItem.new
+    @current_order = current_user.orders.where(state: 'pending').last
+    @order = Order.find(params[:id])
+    render :current_order unless params.key?(:user_id)
   end
+
 
   def order_completed
     @order = Order.find(params[:order_id])
-    raise
   end
 
   def order_failed

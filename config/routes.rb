@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :users
+
+  resources :users do
+    resources :orders, only: [:show, :index]
+  end
+
   resources :products do
     resources :line_items, only: [:edit, :update, :destroy, :create]
   end
