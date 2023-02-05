@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      render 'edit'
+      render :edit, status: :unprocessable_entity
     end
   end
 

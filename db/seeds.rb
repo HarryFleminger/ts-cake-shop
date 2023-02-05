@@ -1,41 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 puts "Generating cakes!"
 cheese_cake = Product.create(name: "Cheese Cake", price: 15, description: "Cheesy goodnes")
 sponge_cake = Product.create(name: "Sponge Cake", price: 10, description: "Spongey")
-victoria_cake = Product.create(name: "Victoria Cream Cake", price: 5, description: "Creamy victorianus")
+birthday_cake = Product.create(name: "Birthday Cake", price: 5, description: "Creamy victorianus")
+
+puts "Attaching photos"
+# Find out if its possible to attach these photos without uploading them to cloudinary
+cheese_cake_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1675593590/photo-1673280115847-ca8db581acbb_plg3uc.jpg")
+cheese_cake.photos.attach(io: cheese_cake_photo, filename: "Cheese_cake.jpg", content_type: "image/jpg")
+
+sponge_cake_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1675593488/photo-1675227977042-a572dac762be_o7ednr.jpg")
+sponge_cake.photos.attach(io: sponge_cake_photo, filename: "Sponge_cake.jpg", content_type: "image/jpg")
+
+birthday_cake_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1675593531/photo-1673417284575-cb29c8631125_gmcwbo.jpg")
+birthday_cake.photos.attach(io: birthday_cake_photo, filename: "Birthday_cake.jpg", content_type: "image/jpg")
 
 puts "Generating main user"
 main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "harry.fleminger@hotmail.com", password: 123456)
-
-# puts "Creating order for main user"
-# an_order = Order.new
-# an_order.state = "pending"
-# an_order.user = main_user
-# an_order.save
-
-# puts "Creating line_items for basket"
-# line1 = LineItem.new
-# line1.order = an_order
-# line1.product = cheese_cake
-# line1.quantity = 2
-# line1.save
-
-# line2 = LineItem.new
-# line2.order = an_order
-# line2.product = sponge_cake
-# line2.quantity = 4
-# line2.save
-
-# line3 = LineItem.new
-# line3.order = an_order
-# line3.product = victoria_cake
-# line3.quantity = 1
-# line3.save
-
-# puts "A seed's happy ending. It was succesfull!"
