@@ -1,0 +1,25 @@
+{
+  "favorites.resources": [
+    {
+      "filePath": "app/controllers",
+      "group": "Default"
+    },
+    {
+      "filePath": "app/views",
+      "group": "Default"
+    },
+    {
+      "filePath": "db",
+      "group": "Default"
+    },
+    {
+      "filePath": "config/routes.rb",
+      "group": "Default"
+    },
+    {
+      "filePath": "app/models",
+      "group": "Default"
+    }
+  ],
+  "favorites.sortOrder": "DESC"
+}

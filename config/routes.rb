@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :users
-  resources :products
+
+  post '/raise_exception', to: 'debug#raise_exception'
+  resources :users do
+    resources :orders, only: [:show, :index]
+  end
+
+  resources :products do
+    resources :line_items, only: [:edit, :update, :destroy, :create]
+  end
+
   post 'products/add_to_basket', to: 'products#add_to_basket', as: :add_to_basket
+  resources :baskets, only: :show
+
 
   resources :orders do
     resources :payments, only: :new

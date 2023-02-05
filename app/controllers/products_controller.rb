@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to product_path(@product)
     else
-      rrender :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      render 'edit'
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -48,9 +48,8 @@ class ProductsController < ApplicationController
 
     line_item_params = product_params[:line_items_attributes]
     product_quantity = line_item_params["0"][:quantity]
-
-    if current_order.products.where(name: "Cheese Cake").present?
-      new_line_item = LineItem.joins(:product).where("products.name = ?", "Cheese Cake").first
+    if current_order.products.where(name: "#{current_product.name}").present?
+      new_line_item = LineItem.joins(:product).where("products.name = ?", "#{current_product.name}").first
       new_line_item.quantity = product_quantity.to_i
       new_line_item.save
     else
@@ -64,7 +63,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price_cents, :id, line_items_attributes: [:quantity])
+    params.require(:product).permit(:body, :name, :description, :price_cents, :id, line_items_attributes: [:quantity], photos: [])
   end
 
 end
