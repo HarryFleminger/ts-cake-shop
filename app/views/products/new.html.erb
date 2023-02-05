@@ -3,6 +3,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price_cents %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, "Create Product" %>
   <% end %>
 </div>

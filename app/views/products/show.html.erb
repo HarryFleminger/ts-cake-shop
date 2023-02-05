@@ -4,6 +4,9 @@
       <h1><%= @product.name %></h1>
       <p><%=@product.description  %></p>
       <p>Amount<%= @product.price %></p>
+      <% @product.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
       <%= f.input :quantity, collection: 1..10, selected: 1 %>
       <%= f.submit "Add to basket" %>
