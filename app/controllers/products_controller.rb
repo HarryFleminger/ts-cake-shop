@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :check_admin, only: [:edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -66,4 +67,9 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:body, :name, :description, :price_cents, :id, line_items_attributes: [:quantity], photos: [])
   end
 
+  def check_admin
+    unless current_user.admin?
+      redirect_to root_path, alert: "You are not authorized to access this page."
+    end
+  end
 end
