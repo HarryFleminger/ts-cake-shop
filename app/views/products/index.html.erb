@@ -4,13 +4,13 @@
     <% @products.each do |product| %>
       <div class="col-6 col-md-4">
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= product.name %></h5>
-            <%# <img class="card-image" src="https://i.pinimg.com/originals/e2/b6/57/e2b657615924fd6eeee483028573d7d0.jpg" alt="cake"> %>
-            <%= cl_image_tag product.photos.first.key, height: 400, width: 400, crop: :fill %>
-            <p class="card-price">Price: <%= humanized_money_with_symbol(product.price) %></p>
-            <%= link_to "More details", product_path(product), class: "btn btn-primary" %>
-          </div>
+          <%= link_to product_path(product), style: "text-decoration: none; color: black;" do %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <%= cl_image_tag product.photos.first.key, height: 400, width: 400, crop: :fill %>
+              <p class="card-price">Price: <%= humanized_money_with_symbol(product.price) %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

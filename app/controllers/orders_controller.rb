@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
       line_items << {
         name: item.product.name,
         amount: item.product.price_cents,
+        images: [item.product.photos.first.url],
         currency: 'gbp',
         quantity: item.quantity
       }
