@@ -8,7 +8,12 @@ class OrdersController < ApplicationController
   def create
     order = Order.find(params[:order_id])
     line_items = []
+    order_cost = 0
+    line_item_cost = 0
     order.line_items.each do |item|
+      line_item_cost = item.product.price_cents * item.quantity
+      order_cost += line_item_cost
+      line_item_cost = 0
       line_items << {
         name: item.product.name,
         amount: item.product.price_cents,
@@ -16,6 +21,8 @@ class OrdersController < ApplicationController
         quantity: item.quantity
       }
     end
+    order.amount_cents = order_cost
+    order.save
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: line_items,
@@ -43,6 +50,8 @@ class OrdersController < ApplicationController
 
   def order_completed
     @order = Order.find(params[:order_id])
+    @order.state = "completed"
+    @order.save
   end
 
   def order_failed
