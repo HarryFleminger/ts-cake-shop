@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  post '/raise_exception', to: 'debug#raise_exception'
   resources :users do
     resources :orders, only: [:show, :index]
   end

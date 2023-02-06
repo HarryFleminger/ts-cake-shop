@@ -1,4 +1,3 @@
-
 <div data-controller="line-item" class="container">
   <h1>Current order!</h1>
   <div class="row">
@@ -7,7 +6,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= item.product.name %></h5>
-           <%=link_to  product_line_item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>
+           <%=link_to  product_line_item_path(item.product, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
             <img class="card-image" src="https://i.pinimg.com/originals/e2/b6/57/e2b657615924fd6eeee483028573d7d0.jpg" alt="cake">

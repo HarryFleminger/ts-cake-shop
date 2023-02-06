@@ -6,25 +6,13 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= item.product.name %></h5>
-           <%=link_to  product_line_item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>
-                    <i class="fa-solid fa-trash"></i>
-                  <% end %>
             <img class="card-image" src="https://i.pinimg.com/originals/e2/b6/57/e2b657615924fd6eeee483028573d7d0.jpg" alt="cake">
-            <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
+            <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price) %></p>
+            <p class="card-price">Quantity: <%= item.quantity %></p>
+            <p class="card-price">Total: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
           </div>
-          <%= simple_form_for item, url: order_update_quantity_path(item), method: :post do |f| %>
-          <%= f.hidden_field :id %>
-          <%= f.simple_fields_for :line_items do |p| %>
-          <%= p.input :quantity, collection: 1..10,  selected: "#{item.quantity}" %>
-          <% end %>
-        <%= f.submit "Update quantity" %>
-      <% end %>
         </div>
       </div>
-    <% end %>
-    <%= form_with url: orders_path do %>
-    <%= hidden_field_tag 'order_id', @order.id %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

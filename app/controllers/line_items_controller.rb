@@ -2,16 +2,16 @@ class LineItemsController < ApplicationController
 
   def destroy
     current_order = current_user.orders.where(state: 'pending').last
-    line_item = LineItem.find(product_params.to_i)
+    line_item = LineItem.find(params[:id].to_i)
     line_item.destroy
     if current_order.line_items.empty?
       respond_to do |format|
-        format.html { redirect_to products_path, notice: 'Line item was successfully destroyed.' }
+        format.html { redirect_to products_path, notice: 'Product was successfully removed from basket.' }
         format.js { render }
       end
     else
       respond_to do |format|
-        format.html { redirect_to current_order, notice: 'Line item was successfully destroyed.' }
+        format.html { redirect_to current_order, notice: 'Product was successfully removed from basket.' }
         format.js { render }
       end
     end
@@ -40,10 +40,11 @@ class LineItemsController < ApplicationController
   def delete_line
     raise
   end
+
   private
 
   def line_item_params
-    params.require(:line_item).permit(:quantity, :id)
+    params.require(:line_item).permit(:id)
   end
 
   def order_params

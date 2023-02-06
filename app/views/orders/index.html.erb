@@ -1,9 +1,20 @@
 <div class="container">
   <h1>My Orders</h1>
-  <div class="row">
-  <% orders = current_user.orders %>
-    <% orders.each do |order| %>
-     <h5><%= order.user_id %></h5>
-    <% end %>
+  <% if @orders.where(state: "completed").empty?%>
+    <h1>You have no past orders!</h1>
+  <% else %>
+    <div class="row">
+      <% @orders.each do |order| %>
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"> Completed on: <%= order.created_at.strftime("%a, %d %b %Y") %></h5>
+              <p class="card-price">Price: £<%= (order.amount_cents / 100) %>
+              <%= link_to "View order", user_order_url(current_user, order) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
+  <% end %>
 </div>
