@@ -16,3 +16,5 @@ birthday_cake.photos.attach(io: birthday_cake_photo, filename: "Birthday_cake.jp
 
 puts "Generating main user"
 main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "harry.fleminger@hotmail.com", password: 123456)
+
+admin_user = User.create!(first_name: "Dan", last_name: "Cranky", email: "dan.cranky@hotmail.com", password: 654321)
