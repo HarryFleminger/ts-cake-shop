@@ -1,5 +1,5 @@
 puts "Generating cakes!"
-cheese_cake = Product.create(name: "Cheese Cake", price: 15, description: "Cheesy goodnes")
+cheese_cake = Product.create(name: "Cheese Cake", price: 15, description: "Cheesy goodness")
 sponge_cake = Product.create(name: "Sponge Cake", price: 10, description: "Spongey")
 birthday_cake = Product.create(name: "Birthday Cake", price: 5, description: "Creamy victorianus")
 

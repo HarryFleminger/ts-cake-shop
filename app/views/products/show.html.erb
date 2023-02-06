@@ -10,11 +10,13 @@
         <% end  %>
       <%= cl_image_tag @product.photos.first.key, height: 300, width: 400, crop: :fill %>
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
-      <%= f.input :quantity, collection: 1..10, selected: 1 %>
-      <%= f.input :comment, prompt: "If you'd like a custom cake please descripe it here" %>
-      <%= f.submit "Add to basket" %>
+        <%= f.input :quantity, collection: 1..10, selected: 1 %>
+        <%= f.input :comment, prompt: "If you'd like a custom cake please descripe it here" %>
+        <%= f.submit "Add to basket" %>
       <% end %>
-      <%= link_to "edit", edit_product_path(@product) %>
+      <% if current_user.try(:admin?) %>
+        <%= link_to "edit", edit_product_path(@product) %>
+      <% end %>
     </div>
   </div>
 </div>
