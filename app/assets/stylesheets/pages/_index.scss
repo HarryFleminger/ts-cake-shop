@@ -1,20 +1,3 @@
 // Import page-specific CSS files here.
 @import "home";
-
-.card-image {
-  height: 250px;
-}
-
-.increment,
-.decrement {
-  padding: 0.5em;
-  border-radius: 0.5em;
-  background-color: #ccc;
-  color: #fff;
-  cursor: pointer;
-}
-
-.increment:hover,
-.decrement:hover {
-  background-color: #999;
-}
+@import "product_show";
