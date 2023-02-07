@@ -13,9 +13,11 @@
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
         <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
         <p>£<span data-increments-target="price"><%=@product.price%></span></p>
-        <h4 data-increments-target="show">1</h4>
-            <i data-action="click->increments#increment" class="fa-solid fa-plus increment"></i>
-            <i data-action="click->increments#decrement" class="fa-solid fa-minus decrement"></i>
+        <div class="flex-it">
+          <i data-action="click->increments#decrement" class="fa-solid fa-minus decrement"></i>
+          <h4 data-increments-target="show">1</h4>
+          <i data-action="click->increments#increment" class="fa-solid fa-plus increment"></i>
+        </div>
         <%= f.input :comment, prompt: "If you'd like a custom cake please descripe it here" %>
         <%= f.submit "Add to basket £", data: { target: "increments.basket" } %>
       <% end %>
