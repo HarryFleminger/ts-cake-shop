@@ -17,7 +17,6 @@ export default class extends Controller {
   }
 
   decrement(event) {
-
     event.preventDefault()
     if (this.quantityTarget.value > 1) {
       this.quantityTarget.value = parseInt(this.quantityTarget.value) - 1
