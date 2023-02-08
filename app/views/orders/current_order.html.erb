@@ -7,11 +7,11 @@
           <div class="card-body">
             <h5 class="card-title"><%= item.product.name %></h5>
             <%=link_to product_line_item_path(item.product, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>
-              <i class="fa-solid fa-trash"></i>
+              <i class="fa-solid fa-trash "></i>
             <% end %>
             <%= cl_image_tag item.product.photos.first.key, height: 300, width: 300, crop: :fill, class: "card-image" %>
             <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
-          <i data-action="click->reveal#reveal" class="fa-solid fa-chevron-down"></i>
+          <i data-action="click->reveal#reveal" class="fa-solid fa-chevron-down fa-rotate-270"></i>
             <% if item.comment.length > 0 %>
               <p class="card-price">Comment: <%= item.comment %></p>
             <% end %>

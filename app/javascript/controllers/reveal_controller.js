@@ -13,8 +13,11 @@ export default class extends Controller {
   reveal(event){
     if (this.revealButtonTarget.classList.contains("hide")) {
       this.revealButtonTarget.classList.remove("hide")
+      event.target.classList.add("icon-down")
     } else {
       this.revealButtonTarget.classList.add("hide")
+      event.target.classList.add("icon-right")
+      event.target.classList.remove("icon-down")
     }
     console.log(event.target.classList)
   }
