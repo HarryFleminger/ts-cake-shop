@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import IncrementsController from "./increments_controller"
 application.register("increments", IncrementsController)
+
+import RevealController from "./reveal_controller"
+application.register("reveal", RevealController)

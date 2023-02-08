@@ -8,7 +8,7 @@
             <h5 class="card-title"><%= item.product.name %></h5>
             <%= cl_image_tag item.product.photos.first.key, height: 300, width: 300, crop: :fill, class: "card-image" %>
             <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price) %></p>
-            <p class="card-price">Quantity: <%= item.quantity %></p>
+            <p class="card-price">Quantity: <%= item.quantity if item.quantity  %></p>
             <p class="card-price">Total: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
           </div>
         </div>

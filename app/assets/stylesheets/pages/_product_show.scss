@@ -27,3 +27,16 @@
 .decrement:hover {
   background-color: #999;
 }
+
+.hide {
+  display: none;
+}
+
+.icon-right{
+  transform: rotate(270deg);
+  transition: transform 0.3 ease-in-out;
+}
+.icon-down {
+  transform: rotate(0deg);
+  transition: transform 0.3 ease-in-out;
+}
