@@ -1,0 +1,29 @@
+.card-image {
+  height: 250px;
+}
+
+.flex-it{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.flex-it h4 {
+  margin-inline: 5px;
+  margin-bottom: 0px;
+}
+.line_item_quantity {
+  display: none;
+}
+.increment,
+.decrement {
+  padding: 0.4em;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.increment:hover,
+.decrement:hover {
+  background-color: #999;
+}
