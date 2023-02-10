@@ -22,7 +22,7 @@ MoneyRails.configure do |config|
   # To handle the inclusion of validations for monetized fields
   # The default value is true
   #
-  # config.include_validations = true
+  config.include_validations = true
 
   # Default ActiveRecord migration configuration values for columns:
   #

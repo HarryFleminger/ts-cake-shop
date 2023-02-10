@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
         },
       ],
       line_items: line_items,
-      success_url: order_order_completed_url(order),
+      success_url: order_order_completed_url(order, order_id: order.id),
       cancel_url: order_order_failed_url(order)
     )
     order.update(checkout_session_id: session.id)
@@ -67,15 +67,23 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @order.state = "completed"
     @order.save
+    @shipping_address = retrieve_shipping_address(@order.checkout_session_id)
   end
 
   def order_failed
     @order = Order.find(params[:order_id])
+    flash[:notice] = "Payment failed. Please try again."
+    redirect_to order_url(params[:order_id])
   end
 
   private
 
   def product_params
     params.require(:line_item).permit(:id, line_items: [:quantity])
+  end
+
+  def retrieve_shipping_address(checkout_session_id)
+    session = Stripe::Checkout::Session.retrieve(checkout_session_id)
+    session.shipping
   end
 end
