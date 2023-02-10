@@ -6,4 +6,6 @@ class Product < ApplicationRecord
   has_many_attached :photos
   monetize :price_cents
   accepts_nested_attributes_for :line_items
+  # validates_associated :photos
+  validates :photos, attached: true
 end
