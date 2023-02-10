@@ -3,7 +3,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price_cents %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, value: @product.photos.map { |photo| photo.url } } %>
     <%= f.button :submit, "Edit Product" %>
   <% end %>
   <%=link_to product_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-warning bottom-1 end-1 " do %>

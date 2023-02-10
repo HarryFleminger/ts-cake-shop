@@ -26,6 +26,20 @@ class OrdersController < ApplicationController
     order.save
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      shipping_address_collection: {allowed_countries: ["GB"] },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {amount: 0, currency: 'gbp'},
+            display_name: 'Free shipping',
+            delivery_estimate: {
+              minimum: {unit: 'business_day', value: 5},
+              maximum: {unit: 'business_day', value: 7},
+            },
+          },
+        },
+      ],
       line_items: line_items,
       success_url: order_order_completed_url(order),
       cancel_url: order_order_failed_url(order)
