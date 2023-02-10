@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :check_admin, only: [:edit, :update, :destroy]
+  before_action :check_admin, only: [:edit, :update, :destroy, :new, :create]
 
   def index
     @products = Product.all
@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to product_path(@product), notice: "Product was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to @product
+      redirect_to @product, notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
