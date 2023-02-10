@@ -9,7 +9,6 @@
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
         <% end %>
        <%# cl_image_tag @product.photos.first.key, height: 300, width: 400, crop: :fill %>
-
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
         <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
         <p>£<span data-increments-target="price"><%=@product.price%></span></p>
