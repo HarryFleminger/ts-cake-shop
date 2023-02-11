@@ -17,12 +17,12 @@
             <% end %>
           </div>
           <div data-reveal-target="revealButton" class="hide" id=" <%= index %>">
-            <%= simple_form_for item, url: order_update_quantity_path(item), method: :post do |f| %>
+            <%= simple_form_for item, url: order_update_quantity_path(item), method: :post, html: { "data-controller": "auto-update" }  do |f| %>
             <%= f.hidden_field :id %>
             <%= f.simple_fields_for :line_items do |p| %>
-            <%= p.input :quantity, collection: 1..10,  selected: "#{item.quantity}" %>
+            <%= p.input :quantity, collection: 1..10,  selected: "#{item.quantity}", input_html:{ "data-target" => "auto-update.quantity"} %>
             <% end %>
-            <%= f.submit "Update quantity" %>
+            <%= f.submit "Update quantity", "data-action": "auto-update#submit", style: "display:none;" %>
             <% end %>
           </div>
         </div>
