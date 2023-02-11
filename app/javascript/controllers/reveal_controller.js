@@ -4,21 +4,17 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["revealButton"]
 
-  connect() {
-    console.log("Connected!")
-    console.log(this.revealButtonTarget.classList)
-  }
-
 
   reveal(event){
-    if (this.revealButtonTarget.classList.contains("hide")) {
-      this.revealButtonTarget.classList.remove("hide")
+    const id = event.target.id
+    const revealButtonTarget = this.revealButtonTargets[parseInt(id)]
+    if (revealButtonTarget.classList.contains("hide")) {
+      revealButtonTarget.classList.remove("hide")
       event.target.classList.add("icon-down")
     } else {
-      this.revealButtonTarget.classList.add("hide")
+      revealButtonTarget.classList.add("hide")
       event.target.classList.add("icon-right")
       event.target.classList.remove("icon-down")
     }
-    console.log(event.target.classList)
   }
 }
