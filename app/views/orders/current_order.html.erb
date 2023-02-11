@@ -1,9 +1,7 @@
 <div data-controller="reveal" class="container">
-
-
   <h1>Basket</h1>
   <div class="row">
-    <% @order.line_items.each do |item| %>
+    <% @order.line_items.each_with_index do |item, index| %>
       <div class="col-6 col-md-4">
         <div class="card">
           <div class="card-body">
@@ -13,12 +11,12 @@
             <% end %>
             <%= cl_image_tag item.product.photos.first.key, height: 300, width: 300, crop: :fill, class: "card-image" %>
             <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
-          <i data-action="click->reveal#reveal" class="fa-solid fa-chevron-down fa-rotate-270"></i>
+          <i data-action="click->reveal#reveal" class="fa-solid fa-chevron-down fa-rotate-270" id=" <%= index %>"></i>
             <% if item.comment.length > 0 %>
               <p class="card-price">Comment: <%= item.comment %></p>
             <% end %>
           </div>
-          <div data-reveal-target="revealButton" class="hide">
+          <div data-reveal-target="revealButton" class="hide" id=" <%= index %>">
             <%= simple_form_for item, url: order_update_quantity_path(item), method: :post do |f| %>
             <%= f.hidden_field :id %>
             <%= f.simple_fields_for :line_items do |p| %>
@@ -27,7 +25,6 @@
             <%= f.submit "Update quantity" %>
             <% end %>
           </div>
-
         </div>
       </div>
     <% end %>
