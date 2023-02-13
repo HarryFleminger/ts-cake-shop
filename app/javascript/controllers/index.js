@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AutoUpdateController from "./auto_update_controller"
+application.register("auto-update", AutoUpdateController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
