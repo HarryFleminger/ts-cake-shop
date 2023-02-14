@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["revealButton"]
 
-
   reveal(event){
     const id = event.target.id
     const revealButtonTarget = this.revealButtonTargets[parseInt(id)]
