@@ -5,9 +5,9 @@
     <%= link_to "About us", "#", class: "nav-link" %>
   </div>
     <div class="sub-box">
-        <% if current_user.admin? %>
-          <%= link_to "New cake", "/products/new", class: "nav-link" %>
-        <% end %>
+        <%# <% if current_user.admin? %>
+          <%# <%= link_to "New cake", "/products/new", class: "nav-link" %>
+        <%# <% end %>
     <% if user_signed_in? %>
       <% if current_user.orders.where(state: 'pending').last.present? %>
           <%= link_to  "/orders/#{current_user.orders.last.id}", class: "nav-link" do %>
@@ -21,9 +21,7 @@
         <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
       </div>
         <% else %>
-          <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
         <% end %>
     </div>
   </div>

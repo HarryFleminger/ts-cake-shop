@@ -1,18 +1,10 @@
-<div class="container">
-  <h1>Products</h1>
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <%= link_to product_path(product), style: "text-decoration: none; color: black;" do %>
-            <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
-              <%= cl_image_tag product.photos.first.key, height: 400, width: 400, crop: :fill %>
-              <p class="card-price">Price: <%= humanized_money_with_symbol(product.price) %></p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+<div class="main-container">
+<h5>ALL</h5>
+    <div class="main-grid">
+  <% @products.each do |product| %>
+            <%= link_to product_path(product), style: "text-decoration: none; color: black;" do %>
+              <%= render "shared/product", product: product %>
+            <% end %>
+  <% end %>
+    </div>
 </div>

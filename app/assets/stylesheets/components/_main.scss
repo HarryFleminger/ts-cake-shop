@@ -1,0 +1,9 @@
+.main-container {
+  padding-inline: 15%;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 305px 305px 305px;
+  gap: 25px;
+}

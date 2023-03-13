@@ -1,0 +1,3 @@
+<h5><%= product.name %></h5>
+<%= cl_image_tag product.photos.first.key %>
+<p>Price: <%= humanized_money_with_symbol(product.price) %></p>
