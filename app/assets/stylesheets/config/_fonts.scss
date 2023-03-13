@@ -1,10 +1,16 @@
 // Import Google fonts
+// Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
 $body-font:  "Hahmlet", "sans-serif";
 $headers-font: "Hahmlet", "sans-serif";
 
+a {
+  text-decoration: none !important;
+  color: black;
+  font-size: 18px;
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
