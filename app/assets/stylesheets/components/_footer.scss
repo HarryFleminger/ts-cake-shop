@@ -1,0 +1,122 @@
+.footer-container-top {
+  background-color: $light-pink;
+  width: 100%;
+  height: 444px;
+  padding-inline: auto;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.back-to-top-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.back-to-top p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.main-footer-content-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  height: 169px;
+  padding-inline: 5%;
+}
+.footer-titles {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: -5px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 0;
+}
+.footer-content p {
+ margin: 0;
+}
+.social {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
+}
+#footer-buttercream-content {
+  width: 262px;
+}
+#links-size {
+  width: 100px;
+}
+#reduce-margin {
+  margin-bottom: -15px;
+}
+
+.stripe-container {
+  width: 100%;
+  height: 83px;
+  background-color: $light-pink;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  flex-direction: column;
+  padding-inline: 11%
+}
+#GBP {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  margin-top: 27px;
+  color: rgba(0, 0, 0, 0.829);
+}
+.stripe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.payment-methods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+}
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.829);
+  gap: 10px;
+}
+.copyright p {
+  margin: 0;
+}

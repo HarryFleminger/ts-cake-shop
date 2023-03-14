@@ -1,8 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://images.unsplash.com/photo-1503525642560-ecca5e2e49e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=535&q=80" %>
-    <% end %>
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <%= link_to "Get in touch", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "About us", "#", class: "nav-link" %>
+          </li>
+        </ul>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,24 +15,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Cakes!", "/products", class: "nav-link" %>
-          </li>
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to "New cake", "/products/new", class: "nav-link" %>
+              </li>
+            <% end %>
         <% if user_signed_in? %>
           <% if current_user.orders.where(state: 'pending').last.present? %>
             <li class="nav-item">
-              <%= link_to "My basket", "/orders/#{current_user.orders.last.id}", class: "nav-link" %>
-            </li>
-          <% end %>
-          <% if current_user.admin? %>
-            <li class="nav-item">
-              <%= link_to "New cake", "/products/new", class: "nav-link" %>
+              <%= link_to  "/orders/#{current_user.orders.last.id}", class: "nav-link" do %>
+                <%= image_tag "basket-icon.svg", class: "avatar dropdown-toggle"%>
+              <% end %>
             </li>
           <% end %>
           <li class="nav-item dropdown">
+          <%# add link to basket  %>
+
+          <%# end %>
             <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My orders", "/users/#{current_user.id}/orders", class: "dropdown-item" %>

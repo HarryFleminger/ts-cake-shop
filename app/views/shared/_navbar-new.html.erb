@@ -1,0 +1,28 @@
+<div class="navbar-container">
+  <div class="navbar-flexbox">
+  <div class="sub-box">
+    <%= link_to "Get in touch", "#", class: "nav-link" %>
+    <%= link_to "About us", "#", class: "nav-link" %>
+  </div>
+    <div class="sub-box">
+        <%# <% if current_user.admin? %>
+          <%# <%= link_to "New cake", "/products/new", class: "nav-link" %>
+        <%# <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.orders.where(state: 'pending').last.present? %>
+          <%= link_to  "/orders/#{current_user.orders.last.id}", class: "nav-link" do %>
+            <%= image_tag "basket-icon.svg", class: "avatar dropdown-toggle"%>
+          <% end %>
+      <% end %>
+      <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "My orders", "/users/#{current_user.id}/orders", class: "dropdown-item" %>
+        <%= link_to "Edit my Profile", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      </div>
+        <% else %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <% end %>
+    </div>
+  </div>
+</div>

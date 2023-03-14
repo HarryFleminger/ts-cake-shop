@@ -30,7 +30,10 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    old_photo_ids = @product.photos.ids
     if @product.update(product_params)
+      new_photo_ids = @product.photos.ids
+      raise
       redirect_to @product, notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity

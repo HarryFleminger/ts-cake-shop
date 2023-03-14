@@ -1,8 +1,0 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<% if current_user.present? && current_user.admin? %>
-  <%= p "you are an admin" %>
-<% else %>
-  <%= p "Welcome to Tee Bakes and Cakes!" %>
-<% end %>

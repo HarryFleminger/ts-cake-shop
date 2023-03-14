@@ -1,0 +1,42 @@
+.header-container {
+  background-color: $light-gold;
+  width: 100%;
+  height: 134px;
+  padding-inline: auto;
+  position: relative;
+}
+.logo-centered {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.header-menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 39px;
+  z-index: 100;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.link-box {
+  display: flex;
+  height: 39px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
