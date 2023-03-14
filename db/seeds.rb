@@ -7,7 +7,7 @@ princess_cake = Product.new(name: "A Princess Cake", price: 66, description: "A 
 pokemon_cake = Product.new(name: "The Pokey Cake", price: 38, description: "A pokemon lovers cake")
 
 puts "Attaching photos"
-kripsy_kreme_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1678728066/289481912_341253488161197_2848639002910872896_n_mr4op1.jpg")
+kripsy_kreme_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1678728176/311778893_158950273492930_6278858559472575134_n_zdtpm5.jpg")
 kripsy_kreme.photos.attach(io: kripsy_kreme_photo, filename: "kripsy_kreme.jpg", content_type: "image/jpg")
 
 hulk_cake_photo = URI.open("https://res.cloudinary.com/dblvfwtds/image/upload/v1678728066/288913300_554856272796740_5803513019029902746_n_vvgjj6.jpg")
