@@ -1,0 +1,5 @@
+<div class="product-card">
+  <%= cl_image_tag product.photo.key%>
+  <h5 class="product-name-card"><%= product.name %></h5>
+  <p>Price: <strong><%= humanized_money_with_symbol(product.price) %></strong></p>
+</div>
