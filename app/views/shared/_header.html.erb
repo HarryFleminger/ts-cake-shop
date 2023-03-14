@@ -1,11 +1,12 @@
 <div class="header-container">
   <%= image_tag "Teelogo.png", class: "logo-centered" %>
   <div class="header-menus">
-    <div class="link-box">
-      <%= link_to "Custom cakes", "/products", class: "menu-link" %>
+    <div class=<%=current_page?(custom_cakes_path) ? "link-box" : "" %>>
+      <%= link_to "Custom cakes", "/custom_cakes", class: "menu-link" %>
     </div>
-    <%# <div class="link-box"> %>
-        <%# <%= link_to "Shop", "#", class: "menu-link" %>
+    <div class=<%=current_page?(products_path) ? "link-box" : "" %> >
+      <%= link_to "Shop", "/products", class: "menu-link" %>
     </div>
   </div>
 </div>
+<%# ) %>
