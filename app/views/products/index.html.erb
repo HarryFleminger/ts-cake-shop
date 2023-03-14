@@ -1,13 +1,14 @@
-<div class="main-container">
-<h5 class="products-shown">ALL</h5>
-  <div class="main-grid">
-    <% @products.each do |product| %>
-      <%= link_to product_path(product), style: "text-decoration: none; color: black;" do %>
-        <%= render "shared/product", product: product %>
-      <% end %>
-    <% end %>
+<div class="wrapper">
+  <div class="main-container">
+    <h5 class="products-shown">ALL</h5>
+      <div class="main-grid">
+        <% @products.each do |product| %>
+          <%= link_to product_path(product), style: "text-decoration: none; color: black;" do %>
+            <%= render "shared/product", product: product %>
+          <% end %>
+        <% end %>
+      </div>
   </div>
-
+    <%= render "shared/text-advert"%>
+    <%= render "shared/footer"%>
 </div>
-  <%= render "shared/text-advert"%>
-  <%= render "shared/footer"%>
