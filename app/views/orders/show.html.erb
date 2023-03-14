@@ -1,3 +1,5 @@
+<%= render "shared/navbar-new" %>
+<%= render "shared/header" %>
 <div data-controller="line-item" class="container">
   <h1>Order for: <%=@order.created_at.strftime("%a, %d %b %Y")%></h1>
   <div class="row">

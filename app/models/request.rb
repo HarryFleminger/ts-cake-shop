@@ -3,5 +3,5 @@ class Request < ApplicationRecord
   belongs_to :flavour, optional: true
   belongs_to :custom_cake
   belongs_to :user
-  has_many_attached :photos, optinal: true
+  has_many_attached :photos
 end
