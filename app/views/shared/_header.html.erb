@@ -1,7 +1,7 @@
 <div class="header-container">
   <%= image_tag "Teelogo.png", class: "logo-centered" %>
   <div class="header-menus">
-    <div class=<%=current_page?(custom_cakes_path) ? "link-box" : "" %>>
+    <div class=<%=current_page?(custom_cakes_path) || current_page?(root_path) ? "link-box" : "" %>>
       <%= link_to "Custom cakes", "/custom_cakes", class: "menu-link" %>
     </div>
     <div class=<%=current_page?(products_path) ? "link-box" : "" %> >
@@ -9,4 +9,3 @@
     </div>
   </div>
 </div>
-<%# ) %>

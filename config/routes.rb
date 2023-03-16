@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "custom_cakes#index"
 
   resources :users do
     resources :orders, only: [:show, :index]
