@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
 
   create_table "flavours", force: :cascade do |t|
     t.string "flavour", null: false
-    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,15 +102,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
   create_table "requests", force: :cascade do |t|
     t.bigint "flavour_id", null: false
     t.bigint "custom_cake_id", null: false
-    t.bigint "delivery_address_id", null: false
+    t.bigint "delivery_address_id"
     t.bigint "user_id", null: false
     t.string "status", default: "pending", null: false
     t.string "paid_status", default: "unpaid", null: false
     t.boolean "delivery_required", default: true, null: false
-    t.text "design_description", null: false
+    t.text "design_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "datetime", null: false
+    t.datetime "datetime"
     t.index ["custom_cake_id"], name: "index_requests_on_custom_cake_id"
     t.index ["delivery_address_id"], name: "index_requests_on_delivery_address_id"
     t.index ["flavour_id"], name: "index_requests_on_flavour_id"

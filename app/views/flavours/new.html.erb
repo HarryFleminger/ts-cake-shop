@@ -1,0 +1,5 @@
+<%= render "shared/request_header" %>
+<%= simple_form_for([@custom_cake, @flavour]) do |f| %>
+  <%= f.input :flavour, priority: [ "Classic Vanilla" ], collection: [ "Classic Vanilla", "Chocolate Fudge", "Red Velvet", "Zesty Lemon", "Black Forest", "Biscoff", "Cookies N Cream", "CoCo X Passion", "Nutella", "Salted Caramel"] %>
+  <%= f.submit "Submit" %>
+<% end %>

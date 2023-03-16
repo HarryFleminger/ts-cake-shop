@@ -5,6 +5,9 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @delivery_address = DeliveryAddress.new
+    @flavour = Flavour.new
+    @custom_cake = CustomCake.find(params[:custom_cake_id])
   end
 
   def create
@@ -12,7 +15,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to @request
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
