@@ -11,9 +11,9 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
-    if @request.save
-      redirect_to @request
+    @request = Request.find(request_id_params[:request_id])
+    if @request.update(request_params)
+      redirect_to new_custom_cake_request_path(request_id: @request.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,6 +26,9 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:name, :email, :phone, :message)
+    params.require(:request).permit(:delivery_required, :datetime_of_occasion, :design_description, :phone, :message, photos: [])
+  end
+  def request_id_params
+    params.require(:request).permit(:request_id)
   end
 end

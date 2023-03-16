@@ -1,21 +1,33 @@
 <%= render "shared/request_header" %>
-<% unless current_user.requests.last.flavour.present? %>
+<% if params[:request_id].present? %>
+  <% request = Request.find(params[:request_id]) %>
+<% else %>
+  <% request = Request.new %>
+<% end %>
+<% unless request.flavour.present? %>
   <%= simple_form_for([@custom_cake, @flavour]) do |f| %>
     <%= f.input :flavour, priority: [ "Classic Vanilla" ], collection: [ "Classic Vanilla", "Chocolate Fudge", "Red Velvet", "Zesty Lemon", "Black Forest", "Biscoff", "Cookies N Cream", "CoCo X Passion", "Nutella", "Salted Caramel"] %>
   <%= f.submit "Submit" %>
   <% end %>
-<%= simple_form_for([@custom_cake, @request]) do |f| %>
-  <%= f.input :design_description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :datetime, as: :datetime, html5: true, label: 'Date and time of occasion' %>
-  <%= f.submit "Submit" %>
 <% end %>
-<%= simple_form_for([@custom_cake, @delivery_address]) do |f| %>
-  <%= f.input :street %>
-  <%= f.input :postcode %>
-  <%= f.input :city %>
-  <%= f.input :phone_number %>
-  <%= f.submit "Submit" %>
+<% if request.design_description == nil && request.datetime_of_occasion == nil %>
+  <%= simple_form_for([@custom_cake, @request]) do |f| %>
+    <%= f.input :design_description %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :delivery_required %>
+    <%= f.input :datetime_of_occasion, as: :datetime, html5: true, label: 'Date and time of occasion' %>
+    <%= f.input :request_id, as: :hidden, input_html: { value: params[:request_id] } %>
+    <%= f.submit "Submit" %>
+  <% end %>
 <% end %>
-
+<% unless request.delivery_address.present? %>
+  <%= simple_form_for([@custom_cake, @delivery_address]) do |f| %>
+    <%= f.input :street %>
+    <%= f.input :postcode %>
+    <%= f.input :city %>
+    <%= f.input :phone_number %>
+    <%= f.input :request_id, as: :hidden, input_html: { value: params[:request_id] } %>
+    <%= f.submit "Submit" %>
+  <% end %>
 <% end %>
+<% raise %>

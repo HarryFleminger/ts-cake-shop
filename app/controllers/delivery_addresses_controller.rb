@@ -5,9 +5,11 @@ class DeliveryAddressesController < ApplicationController
   end
 
   def create
+    @request = Request.find(request_id_params[:request_id])
     @delivery_address = DeliveryAddress.new(delivery_address_params)
-    if @delivery_address.save
-      redirect_to @delivery_address
+    @delivery_address.user = current_user
+    if @request.update(delivery_address: @delivery_address)
+      redirect_to custom_cake_request_path(@request)
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,6 +22,10 @@ class DeliveryAddressesController < ApplicationController
   private
 
   def delivery_address_params
-    params.require(:delivery_address).permit( :street, :city, :postal_code, :phone)
+    params.require(:delivery_address).permit( :street, :city, :postcode, :phone_number)
+  end
+
+  def request_id_params
+    params.require(:delivery_address).permit(:request_id)
   end
 end

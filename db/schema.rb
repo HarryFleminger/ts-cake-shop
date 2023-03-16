@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
     t.text "design_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "datetime"
+    t.datetime "datetime_of_occasion"
     t.index ["custom_cake_id"], name: "index_requests_on_custom_cake_id"
     t.index ["delivery_address_id"], name: "index_requests_on_delivery_address_id"
     t.index ["flavour_id"], name: "index_requests_on_flavour_id"
