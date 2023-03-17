@@ -5,12 +5,15 @@
   <% request = Request.new %>
 <% end %>
 <% unless request.flavour.present? %>
-  <%= simple_form_for([@custom_cake, @flavour]) do |f| %>
-    <%= f.input :flavour, priority: [ "Classic Vanilla" ], collection: [ "Classic Vanilla", "Chocolate Fudge", "Red Velvet", "Zesty Lemon", "Black Forest", "Biscoff", "Cookies N Cream", "CoCo X Passion", "Nutella", "Salted Caramel"] %>
+  <%= simple_form_for([@custom_cake, @flavour], html: { "data-controller": "form-selector" } )do |f| %>
+    <%= f.input :name, collection: [ "Classic Vanilla", "Chocolate Fudge", "Red Velvet", "Zesty Lemon", "Black Forest", "Biscoff", "Cookies N Cream", "CoCo X Passion", "Nutella", "Salted Caramel"] %>
+    <%= f.input :description, collection: [ "A light vanilla bean sponge, layered with vanilla buttercream and strawberry or raspberry conserve", "A rich chocolate sponge, layered with chocolate buttercream and chocolate ganache", "A moist red velvet sponge, layered with cream cheese buttercream and strawberry conserve", "A light lemon sponge, layered with lemon buttercream and lemon curd", "A light chocolate sponge, layered with chocolate buttercream, cherry conserve and chocolate ganache", "A light vanilla sponge, layered with biscoff buttercream and biscoff spread", "A light vanilla sponge, layered with cookies and cream buttercream and crushed oreos", "A light chocolate sponge, layered with passion fruit and buttercream curd", "A light chocolate sponge, layered with nutella buttercream and nutella spread", "A light vanilla sponge, layered with salted caramel buttercream and salted caramel sauce"] %>
   <%= f.submit "Submit" %>
   <% end %>
+
 <% end %>
-<% if request.design_description == nil && request.datetime_of_occasion == nil %>
+
+<% if request.design_description == nil && request.datetime_of_occasion == nil && request.flavour.present? %>
   <%= simple_form_for([@custom_cake, @request]) do |f| %>
     <%= f.input :design_description %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
@@ -20,7 +23,8 @@
     <%= f.submit "Submit" %>
   <% end %>
 <% end %>
-<% unless request.delivery_address.present? %>
+
+<% if request.design_description != nil && request.datetime_of_occasion != nil && request.flavour.present? %>
   <%= simple_form_for([@custom_cake, @delivery_address]) do |f| %>
     <%= f.input :street %>
     <%= f.input :postcode %>
@@ -30,4 +34,3 @@
     <%= f.submit "Submit" %>
   <% end %>
 <% end %>
-<% raise %>

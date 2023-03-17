@@ -26,6 +26,6 @@ class FlavoursController < ApplicationController
   private
 
   def flavour_params
-    params.require(:flavour).permit(:flavour)
+    params.require(:flavour).permit(:name, :description)
   end
 end

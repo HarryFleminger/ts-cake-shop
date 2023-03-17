@@ -66,18 +66,18 @@ inch4_6.save!
 inch3_8.save!
 full_custom.save!
 
-# puts "Generating custom cake flavours"
+puts "Generating custom cake flavours"
 
-# Flavour.create!(flavour: "Classic Vanilla", description: "A light vanilla bean sponge, layered with vanilla buttercream and strawberry or raspberry conserve")
-# Flavour.create!(flavour: "Chocolate", description: "A rich chocolate sponge, layered with chocolate buttercream and chocolate ganache")
-# Flavour.create!(flavour: "Red Velvet", description: "A moist red velvet sponge, layered with cream cheese buttercream and strawberry conserve")
-# Flavour.create!(flavour: "Zesty Lemon", description: "A light lemon sponge, layered with lemon buttercream and lemon curd")
-# Flavour.create!(flavour: "Black Forest", description: "A light chocolate sponge, layered with chocolate buttercream, cherry conserve and chocolate ganache")
-# Flavour.create!(flavour: "Biscoff", description: "A light vanilla sponge, layered with biscoff buttercream and biscoff spread")
-# Flavour.create!(flavour: "Cookies and Cream", description: "A light vanilla sponge, layered with cookies and cream buttercream and crushed oreos")
-# Flavour.create!(flavour: "Coco X Passion", description: "A light chocolate sponge, layered with passion fruit and buttercream curd")
-# Flavour.create!(flavour: "Nutella", description: "A light chocolate sponge, layered with nutella buttercream and nutella spread")
-# Flavour.create!(flavour: "Salted Caramel", description: "A light vanilla sponge, layered with salted caramel buttercream and salted caramel sauce")
+Flavour.create!(name: "Classic Vanilla", description: "A light vanilla bean sponge, layered with vanilla buttercream and strawberry or raspberry conserve")
+Flavour.create!(name: "Chocolate", description: "A rich chocolate sponge, layered with chocolate buttercream and chocolate ganache")
+Flavour.create!(name: "Red Velvet", description: "A moist red velvet sponge, layered with cream cheese buttercream and strawberry conserve")
+Flavour.create!(name: "Zesty Lemon", description: "A light lemon sponge, layered with lemon buttercream and lemon curd")
+Flavour.create!(name: "Black Forest", description: "A light chocolate sponge, layered with chocolate buttercream, cherry conserve and chocolate ganache")
+Flavour.create!(name: "Biscoff", description: "A light vanilla sponge, layered with biscoff buttercream and biscoff spread")
+Flavour.create!(name: "Cookies and Cream", description: "A light vanilla sponge, layered with cookies and cream buttercream and crushed oreos")
+Flavour.create!(name: "Coco X Passion", description: "A light chocolate sponge, layered with passion fruit and buttercream curd")
+Flavour.create!(name: "Nutella", description: "A light chocolate sponge, layered with nutella buttercream and nutella spread")
+Flavour.create!(name: "Salted Caramel", description: "A light vanilla sponge, layered with salted caramel buttercream and salted caramel sauce")
 
 puts "Generating main user"
 main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "harry.fleminger@hotmail.com", password: 123456)

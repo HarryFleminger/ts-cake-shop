@@ -9,7 +9,7 @@ class DeliveryAddressesController < ApplicationController
     @delivery_address = DeliveryAddress.new(delivery_address_params)
     @delivery_address.user = current_user
     if @request.update(delivery_address: @delivery_address)
-      redirect_to custom_cake_request_path(@request)
+      redirect_to request_path(@request)
     else
       render :new, status: :unprocessable_entity
     end
