@@ -1,3 +1,43 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<%= @request  %>
+  <div class="summary-header">
+    <h1>Custom Cake - <%= @request.custom_cake.name %></h1>
+    <h4>Thanks for ordering!</h3>
+<h6>We'll get back to you within 24 hours for conformation and payment</h6>
+  </div>
+<div class="summary-container">
+  <div class="left-summary">
+    <h3>Cake Details</h3>
+    <h5>Size</h5>
+    <p><%= @request.custom_cake.name %></p>
+    <h5>Flavour</h5>
+    <p><%= @request.flavour.name %></p>
+    <p><%= @request.flavour.description %></p>
+    <h5>Your Design description</h5>
+    <p><%= @request.design_description %></p>
+    <h5>Your Design Ideas</h5>
+    <div class="design-ideas">
+      <% @request.photos.each do |photo| %>
+        <div class="design-idea-photo">
+          <img src="<%= cl_image_path photo.key %>" alt="Deasign Idea">
+        </div>
+      <% end %>
+      </div>
+  </div>
+  <div class="right-summary">
+    <h3>Request Details</h3>
+     <h5>Customer</h5>
+      <p><strong>Full Name</strong> - <%= @request.user.first_name %> <%= @request.user.last_name %></p>
+      <p><strong>Email</strong> - <%= @request.user.email %></p>
+      <p><strong>Phone</strong> - <%= @request.delivery_address.phone_number %></p>
+      <% if @request.delivery_required %>
+        <h5>Delivery Details</h5>
+        <p><strong>Address</strong> - <%= @request.delivery_address.street %></p>
+        <p><strong>City</strong> - <%= @request.delivery_address.city %></p>
+        <p><strong>Postcode</strong> - <%= @request.delivery_address.postcode %></p>
+        <p><strong>Delivery Date</strong> - <%= @request.datetime_of_occasion.strftime('%B %-d, %Y at %-I:%M%p') %></p>
+        <% else %>
+        <h5>Pickup Details</h5>
+      <% end %>
+  </div>
+</div>
