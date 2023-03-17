@@ -32,12 +32,14 @@
       <p><strong>Phone</strong> - <%= @request.delivery_address.phone_number %></p>
       <% if @request.delivery_required %>
         <h5>Delivery Details</h5>
-        <p><strong>Address</strong> - <%= @request.delivery_address.street %></p>
+        <p><strong>Delivery Date</strong> - <%= @request.datetime_of_occasion.strftime('%B %-d, %Y at %-I:%M%p') %></p>
+
+        <p><strong>Street</strong> - <%= @request.delivery_address.street %></p>
         <p><strong>City</strong> - <%= @request.delivery_address.city %></p>
         <p><strong>Postcode</strong> - <%= @request.delivery_address.postcode %></p>
-        <p><strong>Delivery Date</strong> - <%= @request.datetime_of_occasion.strftime('%B %-d, %Y at %-I:%M%p') %></p>
         <% else %>
         <h5>Pickup Details</h5>
       <% end %>
   </div>
 </div>
+    <%= render "shared/footer"%>

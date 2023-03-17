@@ -14,7 +14,7 @@
   padding-inline: 15%;
   display: flex;
   gap: 60px;
-  margin-top: 50px;
+  margin-block: 50px;
 }
 .left-summary {
   width: 50%;
@@ -30,4 +30,5 @@
   align-items: center;
   flex-direction: column;
   padding-inline: 15%;
+  gap: 25px;
 }

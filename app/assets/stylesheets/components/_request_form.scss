@@ -1,0 +1,27 @@
+.request-container {
+  padding-inline: 15%;
+}
+.flavour-option input[type="radio"] {
+  display: none;
+}
+
+.flavour-label {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.flavour-option input[type="radio"]:checked + .flavour-label {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 0 4px #888;
+  border-color: #007bff;
+}
+
+.flavour-option {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
