@@ -11,11 +11,15 @@ class RequestsController < ApplicationController
   end
 
   def create
+    session[:form_data] ||= {}
     @request = Request.find(request_id_params[:request_id])
-    if @request.update(request_params)
-      redirect_to new_custom_cake_request_path(request_id: @request.id)
+    if request_params[:datetime_of_occasion].blank? || request_params[:design_description].blank?
+      flash[:notice] = "Please enter a date and time for your occasion and a description of your design"
+      session[:form_data] = params[:form_data]
+      redirect_back(fallback_location: new_custom_cake_request_path(request_id: @request.id, form_data: session[:form_data]))
     else
-      render :new, status: :unprocessable_entity
+      @request.update(request_params)
+      redirect_to new_custom_cake_request_path(request_id: @request.id)
     end
   end
 

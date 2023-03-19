@@ -4,4 +4,5 @@ class Request < ApplicationRecord
   belongs_to :custom_cake
   belongs_to :user
   has_many_attached :photos
+  validates :datetime_of_occasion, :design_description, presence: true
 end

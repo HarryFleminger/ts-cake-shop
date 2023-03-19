@@ -11,8 +11,8 @@ class FlavoursController < ApplicationController
   def create
     @flavour = Flavour.create!(flavour_params)
     @custom_cake = CustomCake.find(params[:custom_cake_id])
-    @request = Request.create!(user: current_user, custom_cake: @custom_cake, flavour: @flavour)
-    if @request.save
+    @request = Request.new(user: current_user, custom_cake: @custom_cake, flavour: @flavour)
+    if @request.save(validate: false)
       redirect_to new_custom_cake_request_path(request_id: @request.id)
     else
       render :new, status: :unprocessable_entity
