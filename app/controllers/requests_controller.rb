@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:delivery_required, :datetime_of_occasion, :design_description, :phone, :message, photos: [])
+    params.require(:request)
   end
   def request_id_params
     params.require(:request).permit(:request_id)

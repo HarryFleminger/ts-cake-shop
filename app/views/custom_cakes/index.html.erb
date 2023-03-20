@@ -5,11 +5,11 @@
     <h5 class="products-shown">ALL</h5>
       <div class="main-grid">
         <% @custom_cakes.each do |custom_cake| %>
-          <%= link_to new_custom_cake_request_path(custom_cake), style: "text-decoration: none; color: black;" do %>
+          <%= link_to custom_cake_flavours_path(custom_cake), style: "text-decoration: none; color: black;" do %>
             <%= render "shared/custom_cake", custom_cake: custom_cake %>
           <% end %>
         <% end %>
-      </div>
+      </div>s
   </div>
     <%= render "shared/text-advert"%>
     <%= render "shared/footer"%>

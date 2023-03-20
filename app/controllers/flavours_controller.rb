@@ -1,6 +1,7 @@
 class FlavoursController < ApplicationController
   def index
     @flavours = Flavour.all
+    @custom_cake = CustomCake.find(params[:custom_cake_id])
   end
 
   def new
@@ -28,4 +29,5 @@ class FlavoursController < ApplicationController
   def flavour_params
     params.require(:flavour).permit(:name, :description)
   end
+
 end

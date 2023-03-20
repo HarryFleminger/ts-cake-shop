@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_20_132220) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,11 +56,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
     t.string "street", null: false
     t.string "city", null: false
     t.string "postcode", null: false
-    t.string "phone_number", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
+  end
+
+  create_table "design_details", force: :cascade do |t|
+    t.text "design_description", null: false
+    t.boolean "delivery_required", default: true, null: false
+    t.string "phone_number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "datetime_of_occasion", null: false
   end
 
   create_table "flavours", force: :cascade do |t|
@@ -107,13 +115,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
     t.bigint "user_id", null: false
     t.string "status", default: "pending", null: false
     t.string "paid_status", default: "unpaid", null: false
-    t.boolean "delivery_required", default: true, null: false
-    t.text "design_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "datetime_of_occasion"
+    t.bigint "design_detail_id"
     t.index ["custom_cake_id"], name: "index_requests_on_custom_cake_id"
     t.index ["delivery_address_id"], name: "index_requests_on_delivery_address_id"
+    t.index ["design_detail_id"], name: "index_requests_on_design_detail_id"
     t.index ["flavour_id"], name: "index_requests_on_flavour_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
@@ -141,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_155159) do
   add_foreign_key "orders", "users"
   add_foreign_key "requests", "custom_cakes"
   add_foreign_key "requests", "delivery_addresses"
+  add_foreign_key "requests", "design_details"
   add_foreign_key "requests", "flavours"
   add_foreign_key "requests", "users"
 end

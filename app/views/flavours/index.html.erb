@@ -20,14 +20,18 @@
         <div class="design-idea-photo">
       <%= image_tag("custom_6", class: "") %>
       </div>
-    </div>
+  </div>
   </div>
   <div class="right-request-form">
-    <h2>Design ideas and details</h2>
-<%= simple_form_for([@custom_cake, @flavour, @design_detail, @delivery_address]) do |f| %>
-      <%= f.input :street %>
-      <%= f.input :postcode %>
-      <%= f.input :city %>
-      <%= f.submit "Submit" %>
+  <h2>Choose a flavour</h2>
+  <% @flavours.each do |flavour| %>
+    <%= link_to new_custom_cake_flavour_design_detail_path(@custom_cake, flavour), style: "text-decoration: none; color: black;" do %>
+      <div class="flavour-button">
+        <h5><%=flavour.name  %></h5>
+        <p><%=flavour.description  %></p>
+      </div>
     <% end %>
+  <% end %>
+  </div>
+
 </div>

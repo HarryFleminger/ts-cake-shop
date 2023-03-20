@@ -22,8 +22,10 @@ Rails.application.routes.draw do
   end
   resources :requests, only: [:show, :index]
   resources :custom_cakes do
-    resources :requests, only: [:new, :create]
-    resources :delivery_addresses, only: [:new, :create]
-    resources :flavours, only: [:new, :create]
+    resources :flavours, only: [:index] do
+      resources :design_details, only: [:new, :create] do
+        resources :delivery_addresses, only: [:new, :create]
+      end
+    end
   end
 end

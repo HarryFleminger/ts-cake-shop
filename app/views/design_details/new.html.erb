@@ -24,10 +24,12 @@
   </div>
   <div class="right-request-form">
     <h2>Design ideas and details</h2>
-<%= simple_form_for([@custom_cake, @flavour, @design_detail, @delivery_address]) do |f| %>
-      <%= f.input :street %>
-      <%= f.input :postcode %>
-      <%= f.input :city %>
-      <%= f.submit "Submit" %>
-    <% end %>
-</div>
+    <%= simple_form_for([@custom_cake, @flavour, @design_detail]) do |f| %>
+        <%= f.input :design_description %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, value: @design_detail.photos %>
+        <%= f.input :delivery_required %>
+        <%= f.input :datetime_of_occasion, as: :datetime, html5: true, label: 'Date and time of occasion' %>
+        <%= f.input :phone_number %>
+
+        <%= f.submit "Submit" %>
+      <% end %>
