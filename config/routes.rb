@@ -4,16 +4,17 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :orders, only: [:show, :index]
+    resources :requests, only: [:show, :index]
   end
 
   resources :products do
     resources :line_items, only: [:edit, :update, :destroy, :create]
   end
-
+  get '/order_managment', to: 'pages#order_managment', as: :order_managment
+  get '/order_managment_shop', to: 'pages#order_managment_shop', as: :order_managment_shop
   post 'products/add_to_basket', to: 'products#add_to_basket', as: :add_to_basket
   resources :baskets, only: :show
 
-  get 'flavours/back', to: 'flavours#back', as: 'flavours_back'
   resources :orders do
     resources :payments, only: :new
     post 'orders/update_quantity', to: 'orders#update_quantity', as: :update_quantity

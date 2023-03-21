@@ -1,0 +1,24 @@
+<%= render "shared/navbar-new" %>
+<%= render "shared/header" %>
+<div class="header-flex-title-buttons">
+  <%= link_to "Custom cake orders", order_managment_path, class: "request-button", style: "box-shadow:0px 0px 16px rgba(0, 0, 0, 0.03);" %>
+  <h2>Shop Orders</h2>
+  <%= link_to "Shop orders", "", class: "shop-button", style: "box-shadow: inset 4px 4px 16px rgba(0, 0, 0, 0.06);" %>
+</div>
+<div class="orders-container">
+  <% @orders.each do |order| %>
+    <%= link_to order_path(order), style: "text-decoration: none; color: black;", class: "max-width" do %>
+      <div class="order-box">
+        <div class="order-box-top">
+          <h5><%= order.custom_cake.name %></h5>
+          <h5>£<%= order.custom_cake.price %></h5>
+        </div>
+        <div class="order-box-bottom">
+          <h6><strong>order: </strong><%= order.status %></h6>
+          <h6><%= order.design_detail.datetime_of_occasion.strftime('%B %-d, %Y at %-I:%M%p') %></h6>
+          <h6><strong>View order</strong></h6>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
