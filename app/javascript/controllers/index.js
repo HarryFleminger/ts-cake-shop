@@ -7,6 +7,9 @@ import { application } from "./application"
 import AutoUpdateController from "./auto_update_controller"
 application.register("auto-update", AutoUpdateController)
 
+import FlavourSelectionController from "./flavour_selection_controller"
+application.register("flavour-selection", FlavourSelectionController)
+
 import FormSelectorController from "./form_selector_controller"
 application.register("form-selector", FormSelectorController)
 

@@ -16,3 +16,10 @@
   width: 50%;
   margin: 0;
 }
+.flavour-button.selected {
+  background-color: yellow;
+}
+
+.right-request-form button.hidden {
+  display: none;
+}
