@@ -15,7 +15,6 @@ class DesignDetailsController < ApplicationController
       @request = Request.create!(flavour: @flavour, custom_cake: @custom_cake, design_detail: @design_detail, user: current_user)
       redirect_to request_path(@request)
     else
-      @design_detail.photos = params[:design_detail][:photos]
       render :new, status: :unprocessable_entity
     end
   end

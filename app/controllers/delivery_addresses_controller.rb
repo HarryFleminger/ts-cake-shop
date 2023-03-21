@@ -1,9 +1,9 @@
 class DeliveryAddressesController < ApplicationController
   def new
+    @delivery_address = DeliveryAddress.new
     @design_detail = DesignDetail.find(params[:design_detail_id])
     @custom_cake = CustomCake.find(params[:custom_cake_id])
     @flavour = Flavour.find(params[:flavour_id])
-    @delivery_address = DeliveryAddress.new
   end
 
   def create
@@ -12,7 +12,9 @@ class DeliveryAddressesController < ApplicationController
     @design_detail = DesignDetail.find(params[:design_detail_id])
     @delivery_address = DeliveryAddress.new(delivery_address_params)
     @delivery_address.user = current_user
-    if @delivery_address.save!
+
+    if @delivery_address.valid?
+      @delivery_address.save!
       @request = Request.create!(flavour: @flavour, custom_cake: @custom_cake, design_detail: @design_detail, user: current_user, delivery_address: @delivery_address)
       redirect_to request_path(@request)
     else

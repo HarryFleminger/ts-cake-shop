@@ -24,6 +24,7 @@ class FlavoursController < ApplicationController
     @flavour = Flavour.find(params[:id])
   end
 
+
   private
 
   def flavour_params

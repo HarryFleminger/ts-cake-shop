@@ -16,12 +16,14 @@
     <h5>Your Design description</h5>
     <p><%= @request.design_detail.design_description %></p>
     <% if @request.design_detail.photos.present? %>
-    <div class="design-ideas">
     <h5>Your Design Ideas</h5>
-      <% @request.photos.each do |photo| %>
-        <div class="design-idea-photo">
-          <img src="<%= cl_image_path photo.key %>" alt="Deasign Idea">
-        </div>
+    <div class="design-ideas">
+      <% @request.design_detail.photos.each do |photo| %>
+        <% unless photo.key.blank? %>
+          <div class="design-idea-photo">
+            <img src="<%= cl_image_path photo.key %>" alt="Deasign Idea">
+          </div>
+        <% end %>
       <% end %>
     </div>
     <% end %>

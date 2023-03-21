@@ -1,4 +1,20 @@
 <%= render "shared/request_header" %>
+<div class="form-header-back">
+    <%= link_to custom_cakes_path, class: "back-button" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+</div>
+<div class="form-header-bread">
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="7" r="7" fill="black"/>
+    </svg>
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+    </svg>
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+    </svg>
+</div>
 <div class="request-form-container">
   <div class="left-request-form">
   <div class="design-ideas">
@@ -31,7 +47,7 @@
           <p class="d-none"><%= flavour.description %></p>
         </div>
       <% end %>
-      <button class="d-none next-button" data-target="flavour-selection.button" data-action="click->flavour-selection#followLink">Select this flavour</button>
+      <button class="d-none next-button" data-target="flavour-selection.button" data-action="click->flavour-selection#followLink">Next</button>
     </div>
   </div>
 </div>
