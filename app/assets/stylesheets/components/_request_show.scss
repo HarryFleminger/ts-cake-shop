@@ -1,0 +1,34 @@
+.design-ideas img{
+  width: 100%;
+}
+.design-ideas {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: 4px;
+}
+.design-idea-photo {
+  width: 100%;
+  object-fit: cover;
+}
+.summary-container {
+  padding-inline: 10%;
+  display: flex;
+  gap: 60px;
+  margin-block: 50px;
+}
+.left-summary {
+  width: 50%;
+  margin: 0;
+}
+.right-summary {
+  width: 50%;
+  margin: 0;
+}
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 15%;
+  gap: 25px;
+}

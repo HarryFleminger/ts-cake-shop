@@ -1,0 +1,62 @@
+<%= render "shared/request_header" %>
+<div class="request-container">
+
+  <% if params[:request_id].present? %>
+    <% request = Request.find(params[:request_id]) %>
+  <% else %>
+    <% request = Request.new %>
+  <% end %>
+
+  <% unless request.flavour.present? %>
+    <%= simple_form_for([@custom_cake, @flavour], html: { "data-controller": "form-selector" } ) do |f| %>
+      <% flavours = [ "Classic Vanilla", "Chocolate Fudge", "Red Velvet", "Zesty Lemon", "Black Forest", "Biscoff", "Cookies N Cream", "CoCo X Passion", "Nutella", "Salted Caramel"] %>
+      <% descriptions = [ "A light vanilla bean sponge, layered with vanilla buttercream and strawberry or raspberry conserve", "A rich chocolate sponge, layered with chocolate buttercream and chocolate ganache", "A moist red velvet sponge, layered with cream cheese buttercream and strawberry conserve", "A light lemon sponge, layered with lemon buttercream and lemon curd", "A light chocolate sponge, layered with chocolate buttercream, cherry conserve and chocolate ganache", "A light vanilla sponge, layered with biscoff buttercream and biscoff spread", "A light vanilla sponge, layered with cookies and cream buttercream and crushed oreos", "A light chocolate sponge, layered with passion fruit and buttercream curd", "A light chocolate sponge, layered with nutella buttercream and nutella spread", "A light vanilla sponge, layered with salted caramel buttercream and salted caramel sauce"] %>
+      <div class="flavour-select">
+        <% flavours.each_with_index do |flavour, index| %>
+          <div class="flavour-option">
+            <%= f.radio_button :name, flavour, id: "flavour_#{flavour.parameterize}" %>
+            <%= f.label flavour, for: "flavour_#{flavour.parameterize}", class: "flavour-label" do %>
+              <h3> <%= flavour %> </h3>
+              <p> <%= descriptions[index] %> </p>
+              <%= f.hidden_field :description, value: descriptions[index] %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <%= f.submit "Submit" %>
+<% end %>
+<% end %>
+  <% if request.design_description == nil && request.datetime_of_occasion == nil && request.flavour.present? %>
+<% if session[:form_data] %>
+  <%= simple_form_for([@custom_cake, @request]) do |f| %>
+    <%= f.input :design_description, input_html: { value: session[:form_data][:design_description] } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :delivery_required, input_html: { checked: session[:form_data][:delivery_required] } %>
+    <%= f.input :datetime_of_occasion, as: :datetime, html5: true, label: 'Date and time of occasion', input_html: { value: session[:form_data][:datetime_of_occasion] } %>
+    <%= f.input :request_id, as: :hidden, input_html: { value: params[:request_id] } %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% else %>
+  <%= simple_form_for([@custom_cake, @request]) do |f| %>
+    <%= f.input :design_description %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :delivery_required %>
+    <%= f.input :datetime_of_occasion, as: :datetime, html5: true, label: 'Date and time of occasion' %>
+    <%= f.input :request_id, as: :hidden, input_html: { value: params[:request_id] } %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% end %>
+
+  <% end %>
+
+  <% if request.design_description != nil && request.datetime_of_occasion != nil && request.flavour.present? %>
+    <%= simple_form_for([@custom_cake, @delivery_address]) do |f| %>
+      <%= f.input :street %>
+      <%= f.input :postcode %>
+      <%= f.input :city %>
+      <%= f.input :phone_number %>
+      <%= f.input :request_id, as: :hidden, input_html: { value: params[:request_id] } %>
+      <%= f.submit "Submit" %>
+    <% end %>
+  <% end %>
+</div>

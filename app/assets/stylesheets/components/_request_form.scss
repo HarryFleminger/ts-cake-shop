@@ -1,0 +1,133 @@
+.request-container {
+  padding-inline: 10%;
+}
+.request-form-container {
+  padding-inline: 10%;
+  display: flex;
+  gap: 60px;
+  margin-bottom: 50px;
+  max-height: 100vh;
+}
+.left-request-form {
+  width: 50%;
+  margin: 0;
+}
+.right-request-form {
+  width: 50%;
+  margin: 0;
+  max-height: 100%;
+
+}
+.flavour-links-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 85%;
+}
+.flavour-button {
+  width: 100%;
+  padding: 5px;
+  background-color: #FFFBEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 15px;
+  box-sizing: border-box;
+  border: 1px solid rgba(124, 98, 86, 0.5);
+  p {
+    margin: 0;
+    color: black;
+  }
+  a {
+    font-weight: 700;
+    color: #7C6256 !important;
+  }
+  box-shadow:0px 0px 16px rgba(0, 0, 0, 0.03);
+}
+.flavour-button.selected {
+  box-shadow:0px 0px 0px rgba(255, 255, 255, 0);
+  box-shadow: inset 4px 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.right-request-form button.hidden {
+  display: none;
+}
+button {
+  all: unset;
+}
+input {
+  all: unset;
+}
+.next-button {
+  width: 40%;
+  padding: 7px;
+  font-size: 24px;
+  background-color: #FDD0CF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  margin-inline: auto;
+  font-weight: 900;
+  font
+  p {
+    margin: 0;
+    color: black;
+  }
+  a {
+    font-weight: 900;
+    color: black !important;
+  }
+  box-shadow:0px 0px 0px rgba(0, 0, 0, 0.03);
+}
+
+.form-header-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 11px;
+  padding-inline: 10%;
+  position: absolute;
+}
+.form-header-bread {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 25px;
+  padding-inline: 10%;
+  gap: 30px;
+}
+
+.back-button {
+  position: relative;
+  color: black;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: #FFE1E0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  box-shadow:0px 0px 16px rgba(0, 0, 0, 0.03);
+  &:hover {
+    box-shadow: inset 4px 4px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+
+textarea.form-control {
+  height: 200px;
+}
+
+.form-check-label {
+  color: black !important;
+}
+.form-check-input {
+  color: black !important;
+}

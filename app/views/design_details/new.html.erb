@@ -1,0 +1,51 @@
+<%= render "shared/request_header" %>
+<div class="form-header-back">
+    <%= link_to custom_cake_flavours_path(@custom_cake), class: "back-button" do %>
+     <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+</div>
+<div class="form-header-bread">
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+    </svg>
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="7" r="7" fill="black"/>
+    </svg>
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+    </svg>
+</div>
+<div class="request-form-container">
+  <div class="left-request-form">
+  <div class="design-ideas">
+    <div class="design-idea-photo">
+      <%= image_tag("custom_1", class: "") %>
+    </div>
+        <div class="design-idea-photo">
+      <%= image_tag("custom_2", class: "") %>
+      </div>
+        <div class="design-idea-photo">
+      <%= image_tag("custom_3", class: "") %>
+      </div>
+        <div class="design-idea-photo">
+      <%= image_tag("custom_4", class: "") %>
+      </div>
+        <div class="design-idea-photo">
+      <%= image_tag("custom_5", class: "") %>
+      </div>
+        <div class="design-idea-photo">
+      <%= image_tag("custom_6", class: "") %>
+      </div>
+    </div>
+  </div>
+  <div class="right-request-form">
+    <h2>Design ideas and details</h2>
+    <%= simple_form_for([@custom_cake, @flavour, @design_detail]) do |f| %>
+        <%= f.input :design_description %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, value: @design_detail.photos %>
+        <%= f.input :delivery_required %>
+        <%= f.input :datetime_of_occasion, as: :datetime, html5: true, label: 'Date and time of occasion' %>
+        <%= f.input :phone_number %>
+
+        <%= f.submit "Next", class: "next-button" %>
+      <% end %>
