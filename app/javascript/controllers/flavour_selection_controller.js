@@ -18,7 +18,7 @@ export default class extends Controller {
     })
     event.currentTarget.classList.add("selected")
     event.currentTarget.querySelector("p").classList.remove("d-none")
-    this.buttonTarget.classList.remove("hidden")
+    this.buttonTarget.classList.remove("d-none")
   }
 
   followLink() {

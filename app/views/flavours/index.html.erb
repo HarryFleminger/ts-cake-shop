@@ -23,13 +23,15 @@
   </div>
   </div>
   <div class="right-request-form" data-controller="flavour-selection">
-    <h2>Choose a flavour</h2>
-    <% @flavours.each do |flavour| %>
-      <div class="flavour-button" data-target="flavour-selection.flavourLink" data-action="click->flavour-selection#selectFlavour">
-        <%= link_to flavour.name, new_custom_cake_flavour_design_detail_path(@custom_cake, flavour), style: "text-decoration: none; color: black;", data: { href: new_custom_cake_flavour_design_detail_path(@custom_cake, flavour) } %>
-        <p class="d-none"><%= flavour.description %></p>
-      </div>
-    <% end %>
-    <button class="hidden" data-target="flavour-selection.button" data-action="click->flavour-selection#followLink">Select this flavour</button>
+  <div class="flavour-links-flex">
+      <h2>Choose a flavour</h2>
+      <% @flavours.each do |flavour| %>
+        <div class="flavour-button" data-target="flavour-selection.flavourLink" data-action="click->flavour-selection#selectFlavour">
+          <%= link_to flavour.name, new_custom_cake_flavour_design_detail_path(@custom_cake, flavour), style: "text-decoration: none; color: black;", data: { href: new_custom_cake_flavour_design_detail_path(@custom_cake, flavour) }  %>
+          <p class="d-none"><%= flavour.description %></p>
+        </div>
+      <% end %>
+      <button class="d-none next-button" data-target="flavour-selection.button" data-action="click->flavour-selection#followLink">Select this flavour</button>
+    </div>
   </div>
 </div>
