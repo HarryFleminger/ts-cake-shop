@@ -43,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   padding-inline: 15%;
+  gap: 20px;
 }
 
 .order-box {
@@ -63,10 +64,13 @@
 
 .order-box-top {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 13px;
   width: 100%;
+  h5 {
+    width: 220px;
+    text-align: center;
+  }
 }
 .order-box-bottom {
   display: flex;

@@ -48,6 +48,7 @@
         <p><strong>City</strong> - London</p>
         <p><strong>Postcode</strong> - T's POSTCODE</p>
       <% end %>
+      <%= link_to "Accept", send_payment_path(request_id: @request), class: "accept-payment-button" %>
   </div>
 </div>
     <%= render "shared/footer"%>
