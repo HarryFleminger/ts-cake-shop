@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 
   def send_payment
     @request = Request.find(params[:request_id])
-    @request.update(paid_status: "paid")
+    # @request.update(paid_status: "paid")
     line_item = {
       name: @request.custom_cake.name,
       amount: @request.custom_cake.price_cents,
@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [line_item],
-      success_url: 'http://localhost:3000/success',
+      success_url: 'success controller sets paid_status to paid',
       cancel_url: 'http://localhost:3000/cancel',
       metadata: { request_id: @request.id }
     )
