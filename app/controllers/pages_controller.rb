@@ -33,11 +33,14 @@ class PagesController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [line_item],
-      success_url: 'success controller sets paid_status to paid',
+      success_url: 'http://localhost:3000/cancel',
       cancel_url: 'http://localhost:3000/cancel',
       metadata: { request_id: @request.id }
     )
-    redirect_to session.url, allow_other_host: true
+    # redirect_to session.url, allow_other_host: true
+    RequestPaymentMailer.with(request: @request).send_payment_request(session.url).deliver_now
+    redirect_to order_managment_path flash[:notice] = "Payment request sent to user"
+
     # pass session.url to action mailer to send to user
   end
 
