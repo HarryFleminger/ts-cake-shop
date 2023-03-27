@@ -23,7 +23,10 @@ Rails.application.routes.draw do
     get 'orders/order_completed/:order_id', to: 'orders#order_completed', as: :order_completed
     get 'orders/order_failed/:order_id', to: 'orders#order_failed', as: :order_failed
   end
-  resources :requests, only: [:show, :index]
+  resources :requests, only: [:show, :index] do
+    get '/request_payment_sucessful', to: 'pages#request_payment_sucessful', as: :request_payment_sucessful
+    get '/request_payment_unsucessful', to: 'pages#request_payment_unsucessful', as: :request_payment_unsucessful
+  end
   resources :custom_cakes do
     resources :flavours, only: [:index] do
       resources :design_details, only: [:new, :create] do
