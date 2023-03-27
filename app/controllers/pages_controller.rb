@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 
   def send_payment
     @request = Request.find(params[:request_id])
-    # @request.update(paid_status: "paid")
+    @request.update(status: "in progress")
     line_item = {
       name: @request.custom_cake.name,
       amount: @request.custom_cake.price_cents,
@@ -39,7 +39,8 @@ class PagesController < ApplicationController
     )
     # redirect_to session.url, allow_other_host: true
     RequestPaymentMailer.with(request: @request).send_payment_request(session.url).deliver_now
-    redirect_to order_managment_path flash[:notice] = "Payment request sent to user"
+    redirect_to request_path(@request)
+    flash[:notice] = "Payment request sent to user"
     puts session.url
     # pass session.url to action mailer to send to user
   end

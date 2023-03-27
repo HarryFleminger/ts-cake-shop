@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/request_payment_sucessful', to: 'pages#request_payment_sucessful', as: :request_payment_sucessful
     get '/request_payment_unsucessful', to: 'pages#request_payment_unsucessful', as: :request_payment_unsucessful
   end
+  post '/request_status', to: 'request_status#request_status', as: :request_status
   resources :custom_cakes do
     resources :flavours, only: [:index] do
       resources :design_details, only: [:new, :create] do

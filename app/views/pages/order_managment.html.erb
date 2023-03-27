@@ -10,7 +10,9 @@
     <%= link_to request_path(request), style: "text-decoration: none; color: black;", class: "max-width" do %>
       <div class="order-box">
         <div class="order-box-top">
-          <h5><strong>Status:</strong> <%= request.paid_status.capitalize %></h5>
+          <% if current_user.admin? %>
+            <h5><strong>Paid Status:</strong> <%= request.paid_status.capitalize %></h5>
+          <% end %>
           <h5><strong><%= request.custom_cake.name %></strong></h5>
           <h5>£<%= request.custom_cake.price %></h5>
 

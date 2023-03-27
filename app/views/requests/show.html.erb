@@ -3,6 +3,20 @@
   <div class="summary-header">
     <h1>Custom Cake - <%= @request.custom_cake.name %></h1>
     <h4>Thanks for ordering!</h3>
+    <h4><strong>Request:</strong>
+      <span
+      id="<%= if @request.status == "pending"
+        "status-pending"
+        elsif @request.status == "in progress"
+        "status-in-progress"
+        elsif @request.status == "Completed"
+        "status-completed"
+        else
+          ""
+        end%>"><%=@request.status%>
+      </span>
+    </h4>
+
 <h6>We'll get back to you within 24 hours for conformation and payment</h6>
   </div>
 <div class="summary-container">
@@ -48,7 +62,12 @@
         <p><strong>City</strong> - London</p>
         <p><strong>Postcode</strong> - T's POSTCODE</p>
       <% end %>
-      <%= link_to "Accept", send_payment_path(request_id: @request), class: "accept-payment-button" %>
+      <% if @request.status == "pending" %>
+        <%= link_to "Accept", send_payment_path(request_id: @request), class: "accept-payment-button" %>
+      <% else %>
+        <%= button_to 'Order completed', request_status_path(request_id: @request, status: "completed") %>
+      <% end %>
+
   </div>
 </div>
     <%= render "shared/footer"%>
