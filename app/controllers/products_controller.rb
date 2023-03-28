@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :check_admin, only: [:edit, :update, :destroy, :new, :create]
 
   def index
@@ -30,10 +30,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    old_photo_ids = @product.photos.ids
+    # old_photo_ids = @product.photos.ids (Was from an attempt to retain photos when updating)
     if @product.update(product_params)
-      new_photo_ids = @product.photos.ids
-      raise
+      # new_photo_ids = @product.photos.ids (Was from an attempt to retain photos when updating)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
