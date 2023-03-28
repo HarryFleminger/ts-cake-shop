@@ -1,12 +1,9 @@
 ## A rails E-commerce website for TeesBakes&Cakes
-Customers can:
-  * Buy custom cakes with simple three stage form
-  * Buy normal products from the store
-  
-My client can:
-  * Preform full crud actions for easy upkeep
-  * Accept and decline custom cake requests 
-  * Manage orders and requests 
+This website offers a seamless and intuitive shopping experience for customers who are looking for custom cakes or other products.
+
+Customers have the convenience of purchasing custom cakes through a simple three-stage form that makes the process quick and easy. In addition to custom cakes, the website also offers a variety of normal products that can be purchased from the store.
+
+For the website owner, managing the website is a breeze with full CRUD actions that make upkeep simple and easy. The owner can also easily accept or decline custom cake requests and manage all orders and requests through the website.
   
 ## Current Schema
 ![Schema](https://res.cloudinary.com/dblvfwtds/image/upload/v1678792430/TeeBakesAndCakes-Schema_qvynkw.png)
