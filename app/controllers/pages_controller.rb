@@ -7,9 +7,10 @@ class PagesController < ApplicationController
 
   def order_managment
     if current_user.admin
-      @requests = Request.all
+      @requests = Request.order(created_at: :desc)
+
     else
-      @requests = current_user.requests
+      @requests = current_user.requests.order(created_at: :desc)
     end
   end
 

@@ -80,6 +80,6 @@ Flavour.create!(name: "Nutella", description: "A light chocolate sponge, layered
 Flavour.create!(name: "Salted Caramel", description: "A light vanilla sponge, layered with salted caramel buttercream and salted caramel sauce")
 
 puts "Generating main user"
-main_user = User.create!(first_name: "Ben", last_name: "Franky", email: "harry.fleminger@hotmail.com", password: 123456)
+main_user = User.create!(first_name: "Harry", last_name: "Fleminger", email: "harry.fleminger@hotmail.com", password: 123456)
 
 admin_user = User.create!(first_name: "Dan", last_name: "Cranky", email: "dan.cranky@hotmail.com", password: 654321, admin: true)
