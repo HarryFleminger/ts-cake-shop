@@ -1,7 +1,15 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "https://dry-falls-65065.herokuapp.com/" }
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.sendgrid.net',
+    :port                 => 587,
+    :authentication       => :plain,
+    :user_name            => 'apikey',
+    :password             => ENV['SENDGRID_API_KEY']
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
