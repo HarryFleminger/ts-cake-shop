@@ -11,6 +11,6 @@ class RequestPaymentMailer < ApplicationMailer
   end
 
   def send_email
-    mail(to: 'harry.fleminger@hotmail.com', subject: 'Test email from SendGrid')
+    mail(to: 'henry.fleminger@gmail.com', subject: 'Well done for succesfully sending an email! to yourself :D')
   end
 end
