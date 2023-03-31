@@ -1,0 +1,5 @@
+  <h1>TeeBakes&Cakes Payment Request</h1>
+  <p>Hello <%= @user.first_name %>,</p>
+  <p>TeeBakes&Cakes has accepted your request for <%= @request.custom_cake.name %>. To complete your order, please click the following link:</p>
+  <p><a href="<%= @stripe_url %>" target="_blank">Pay now!</a></p>
+  <p>Thank you for choosing TeeBakes&Cakes!</p>
