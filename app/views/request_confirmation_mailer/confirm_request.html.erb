@@ -1,0 +1,20 @@
+  <h1>Hi <%= @user.first_name %> <%= @user.last_name %>,</h1>
+  <p>
+    Thank you for your request for a <%= @request.custom_cake.name %> cake! We have received your request and are happy to confirm it.
+  </p>
+  <p>
+    Here are the details of your request:
+  </p>
+  <ul>
+    <li>Name: <%= @request.custom_cake.name %></li>
+    <li>Price: <%= number_to_currency(@request.custom_cake.price) %></li>
+  </ul>
+  <p>Design description: <%= @request.design_detail.design_description %></p>
+  <p>
+    If you have any questions or need to make changes to your request, please contact us as soon as possible. We look forward to creating your custom cake!
+  </p>
+  <p>
+    Best regards,
+    <br>
+    Your Cake Shop Team
+  </p>
