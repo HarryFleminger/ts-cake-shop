@@ -65,6 +65,7 @@ class OrdersController < ApplicationController
 
   def order_completed
     @order = Order.find(params[:order_id])
+    ShopOrderMailer.order_confirmation(@order).deliver_now
     @order.state = "completed"
     @order.save
     @shipping_address = retrieve_shipping_address(@order.checkout_session_id)

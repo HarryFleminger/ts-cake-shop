@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  after_action :send_request_email
+
   def index
     @requests = Request.all
   end
@@ -27,6 +29,9 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
   end
 
+  def send_request_email
+    RequestConfirmationMailer.confirm_request(@request).deliver_now
+  end
 
   private
 
