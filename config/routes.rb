@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :index]
     resources :requests, only: [:show, :index]
   end
-
+  resources :contact_messages, only: [:new, :create]
   resources :products do
     resources :line_items, only: [:edit, :update, :destroy, :create]
   end

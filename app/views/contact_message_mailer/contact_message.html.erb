@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 { color: #333; }
+    p { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>New contact message</h1>
+  <p>
+    <strong>Name:</strong> <%= @contact_message.name %><br>
+    <strong>Email:</strong> <%= @contact_message.email %><br>
+    <strong>Subject:</strong> <%= @contact_message.subject %><br>
+  </p>
+  <hr>
+  <p><strong>Message:</strong></p>
+  <p><%= @contact_message.message %></p>
+</body>
+</html>
