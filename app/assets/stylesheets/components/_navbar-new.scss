@@ -1,6 +1,6 @@
 .navbar-container {
   background-color: $light-pink;
-  height: 44px;
+  height: 100px;
   top: 0;
   width: 100%;
   padding-inline: 15%;
@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 44px;
 }
 
 .sub-box {
