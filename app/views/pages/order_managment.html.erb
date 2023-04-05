@@ -5,7 +5,7 @@
   <h2>Custom Cakes Orders</h2>
   <%= link_to "Shop orders", order_managment_shop_path, class: "shop-button", style: "box-shadow:0px 0px 16px rgba(0, 0, 0, 0.03);" %>
 </div>
-<div class="orders-container">
+<div class="orders-container" >
   <% @requests.each do |request| %>
     <%= link_to request_path(request), style: "text-decoration: none; color: black;", class: "max-width" do %>
       <div class="order-box">
@@ -22,5 +22,8 @@
         </div>
       </div>
     <% end %>
+  <% end %>
+    <% if @requests.empty? %>
+    <h5>You dont have any custom cake requests yet! </h5>
   <% end %>
 </div>

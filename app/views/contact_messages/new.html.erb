@@ -1,11 +1,14 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<%= simple_form_for @contact_message do |f| %>
-  <%= f.input :name, label: "Name", required: true %>
-  <%= f.input :email, label: "Email", required: true %>
-  <%= f.input :phone, label: "Phone" %>
-  <%= f.input :subject, label: "Subject", required: true %>
-  <%= f.input :message, label: "Message", as: :text, required: true %>
-  <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
-<%= render "shared/footer"%>
+<div class="main-container main-margin-top-bottom">
+  <%= simple_form_for @contact_message do |f| %>
+    <%= f.input :name, label: "Name", required: true %>
+    <%= f.input :email, label: "Email", required: true %>
+    <%= f.input :phone, label: "Phone" %>
+    <br>
+    <%= f.input :subject, label: "Subject", required: true %>
+    <%= f.input :message, label: "Message", as: :text, required: true %>
+    <%= f.submit "Send", class: "next-button" %>
+  <% end %>
+</div>
+  <%= render "shared/footer"%>

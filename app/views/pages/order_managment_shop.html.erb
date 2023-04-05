@@ -10,15 +10,16 @@
     <%= link_to order_path(order), style: "text-decoration: none; color: black;", class: "max-width" do %>
       <div class="order-box">
         <div class="order-box-top">
-          <h5><%= order.custom_cake.name %></h5>
-          <h5>£<%= order.custom_cake.price %></h5>
+          <h5>£<%= order.amount_cents %></h5>
         </div>
         <div class="order-box-bottom">
-          <h6><strong>order: </strong><%= order.status %></h6>
-          <h6><%= order.design_detail.datetime_of_occasion.strftime('%B %-d, %Y at %-I:%M%p') %></h6>
+          <h6><strong>order: </strong><%= order.state %></h6>
           <h6><strong>View order</strong></h6>
         </div>
       </div>
     <% end %>
+  <% end %>
+  <% if @orders.empty? %>
+    <h5>You dont have any past orders! </h5>
   <% end %>
 </div>
