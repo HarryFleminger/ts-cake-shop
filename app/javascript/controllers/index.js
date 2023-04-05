@@ -13,9 +13,6 @@ application.register("flavour-selection", FlavourSelectionController)
 import FormSelectorController from "./form_selector_controller"
 application.register("form-selector", FormSelectorController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import IncrementsController from "./increments_controller"
 application.register("increments", IncrementsController)
 

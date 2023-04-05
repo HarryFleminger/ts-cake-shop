@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
   root to: "custom_cakes#index"
 
   resources :users do
     resources :orders, only: [:show, :index]
     resources :requests, only: [:show, :index]
   end
-
+  resources :contact_messages, only: [:new, :create]
   resources :products do
     resources :line_items, only: [:edit, :update, :destroy, :create]
   end
