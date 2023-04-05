@@ -42,8 +42,6 @@ class PagesController < ApplicationController
     RequestPaymentMailer.with(request: @request).send_payment_request(session.url).deliver_now
     redirect_to request_path(@request)
     flash[:notice] = "Payment request sent to user"
-    puts session.url
-    # pass session.url to action mailer to send to user
   end
 
   def request_payment_sucessful
