@@ -44,6 +44,13 @@ class PagesController < ApplicationController
     flash[:notice] = "Payment request sent to user"
   end
 
+  def reject_request
+    @request = Request.find(params[:request_id])
+    @request.update(status: "rejected")
+    redirect_to request_path(@request)
+    flash[:notice] = "Request rejected"
+  end
+
   def request_payment_sucessful
     @request = Request.find(params[:request_id])
     @request.update(paid_status: "paid")
@@ -53,6 +60,6 @@ class PagesController < ApplicationController
   def request_payment_unsucessful
     @request = Request.find(params[:request_id])
     @request.update(paid_status: "unpaid")
-    flash[:notice] = "Payment unsuccessful! Please try again!"
+    flash[:notice] = "Payment unsuccessful! Please try again from your email payment link."
   end
 end

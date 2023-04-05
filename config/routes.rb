@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
   get '/order_managment', to: 'pages#order_managment', as: :order_managment
   get '/order_managment_shop', to: 'pages#order_managment_shop', as: :order_managment_shop
-  get '/send_payment', to: 'pages#send_payment', as: :send_payment
-
+  post '/send_payment', to: 'pages#send_payment', as: :send_payment
+  post '/reject_request', to: 'pages#reject_request', as: :reject_request
   post 'products/add_to_basket', to: 'products#add_to_basket', as: :add_to_basket
   resources :baskets, only: :show
 
