@@ -7,7 +7,7 @@
 </div>
 <div class="orders-container">
   <% @orders.each do |order| %>
-    <%= link_to "Change me", style: "text-decoration: none; color: black;", class: "max-width" do %>
+    <%= link_to user_order_url(current_user, order), style: "text-decoration: none; color: black;", class: "max-width" do %>
       <div class="order-box">
         <div class="order-box-top">
           <h5>£<%= order.amount_cents %></h5>
