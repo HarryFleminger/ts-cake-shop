@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  has_many :orders
-  has_many :line_items, through: :orders
+  has_many :orders, dependent: :destroy
+  has_many :line_items, dependent: :destroy
   has_many :products, through: :line_items
-  has_many :requests
-  has_many :delivery_addresses
+  has_many :requests, dependent: :destroy
+  has_many :delivery_addresses, dependent: :destroy
   validates :first_name, :last_name, presence: true
   validates :email, presence: true
 end
