@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :orders, dependent: :destroy
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, through: :orders, dependent: :destroy, foreign_key: :order_id
   has_many :products, through: :line_items
   has_many :requests, dependent: :destroy
   has_many :delivery_addresses, dependent: :destroy
