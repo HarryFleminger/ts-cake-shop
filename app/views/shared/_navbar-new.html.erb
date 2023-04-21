@@ -7,13 +7,13 @@
           <%# <% if current_user.admin? %>
             <%# <%= link_to "New cake", "/products/new", class: "nav-link" %>
           <%# <% end %>
+        <%= link_to "Order managment", order_managment_path, class: "nav-link #{"link-box" if current_page?(order_managment_path) || current_page?(order_managment_shop_path)}" %>
       <% if user_signed_in? %>
         <% if current_user.orders.where(state: 'pending').last.present? %>
             <%= link_to  "/orders/#{current_user.orders.last.id}", class: "nav-link" do %>
               <%= image_tag "basket-icon.svg", class: "avatar dropdown-toggle"%>
             <% end %>
         <% end %>
-        <%= link_to "Order managment", order_managment_path, class: "nav-link #{"link-box" if current_page?(order_managment_path) || current_page?(order_managment_shop_path)}" %>
         <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 

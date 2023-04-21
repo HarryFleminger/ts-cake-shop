@@ -85,6 +85,9 @@ input {
     color: black !important;
   }
   box-shadow:0px 0px 0px rgba(0, 0, 0, 0.03);
+  &:hover {
+    background-color:#fdb9b8;
+  }
 }
 
 .form-header-back {
