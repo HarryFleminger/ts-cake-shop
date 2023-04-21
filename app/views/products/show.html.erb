@@ -1,29 +1,31 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<div data-controller="increments" class="container py-3">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
+<div data-controller="increments" class="main-container ">
+  <div class="product-show-main">
+    <% @product.photos.each do |photo|%>
+    <%= cl_image_tag photo.key%>
+    <% end %>
+      <div class="product-show-details">
       <h1><%= @product.name %></h1>
+      <h5><strong>£<span data-increments-target="price"><%=@product.price%></span></strong></h5>
+      <p class="small-label"> Description</p>
       <p><%=@product.description  %></p>
-
-
-        <% @product.photos.each do |photo|%>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
-        <% end %>
-       <%# cl_image_tag @product.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <p class="small-label">Quantity</p>
       <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
-        <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
-        <p>£<span data-increments-target="price"><%=@product.price%></span></p>
-        <div class="flex-it">
-          <i data-action="click->increments#decrement" class="fa-solid fa-minus decrement"></i>
-          <h4 data-increments-target="show">1</h4>
-          <i data-action="click->increments#increment" class="fa-solid fa-plus increment"></i>
+      <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
+      <div class="flex-it">
+        <div data-action="click->increments#decrement" class=" decrement">
+          <p>-</p>
         </div>
-        <%= f.input :comment, prompt: "If you'd like a custom cake please descripe it here" %>
-        <%= f.submit "Add to basket £", data: { target: "increments.basket" } %>
+        <p data-increments-target="show" class="counter-box">1</p>
+        <div data-action="click->increments#increment" class=" increment">
+          <p>+</p>
+        </div>
+      </div>
+      <%= f.submit "Add to basket £", class: "add-to-basket-button ", data: { target: "increments.basket" } %>
       <% end %>
       <% if current_user.try(:admin?) %>
-        <%= link_to "edit", edit_product_path(@product) %>
+      <%= link_to "edit", edit_product_path(@product) %>
       <% end %>
     </div>
   </div>

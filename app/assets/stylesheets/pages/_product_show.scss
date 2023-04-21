@@ -1,14 +1,56 @@
 .card-image {
   height: 250px;
 }
+.product-show-main {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  margin-block: 50px;
+  width: 100%;
+  img {
+    width: 50%;
+    height: 50%;
+  }
 
+}
+
+.decrement-box {
+
+}
+.product-show-details {
+  margin-left: 20px;
+  width: 50%;
+  height: 100%;
+  p {
+    margin-bottom: 14px;
+  }
+  h1 {
+    margin-bottom: 14px;
+  }
+  h5 {
+    margin-bottom: 14px;
+  }
+  .small-label {
+    margin-bottom: 2px;
+    color: #7a7a7a;
+    font-size: 13px;
+  }
+
+}
 .flex-it{
   display: flex;
   justify-content: left;
   align-items: center;
+  margin-top: 8px;
+  p {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+  }
 }
 .flex-it h4 {
-  margin-inline: 5px;
   margin-bottom: 0px;
 }
 .line_item_quantity {
@@ -17,18 +59,48 @@
 .line_item_line_items_quantity {
   display: none;
 }
+.add-to-basket-button {
+  margin-top: 28px;
+  width: 100%;
+  height: 32px;
+  text-align: center;
+  border: 1px solid black;
+  &:hover {
+    background-color: #FDD0CF;
+  }
+}
+.counter-box {
+  width: 151px;
+  height: 32px;
+  background-color: white;
+  border-top: 1px solid #E9E9E9;
+  border-bottom: 1px solid #E9E9E9;
+  color:#7a7a7a;
+  text-align: center;
+
+}
+
 .increment,
 .decrement {
   padding: 0.4em;
-  border-radius: 50%;
-  background-color: #ccc;
-  color: #fff;
+  background-color: white;
+  border: 1px solid #E9E9E9;
+  color: black;
+  width: 33px;
+  height: 32px;
   cursor: pointer;
+  p {
+    margin: 0px;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    height: 100%; /* Set the height of the parent container to 100% */
+  }
 }
 
 .increment:hover,
 .decrement:hover {
-  background-color: #999;
+  background-color:#FFFBEF;
 }
 
 .hide {

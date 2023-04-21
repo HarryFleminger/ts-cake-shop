@@ -10,10 +10,13 @@
     <%= link_to user_order_url(current_user, order), style: "text-decoration: none; color: black;", class: "max-width" do %>
       <div class="order-box">
         <div class="order-box-top">
-          <h5>£<%= order.amount_cents %></h5>
+          <h5></h5>
+          <h5 id="lengthen-width">Order for: <%=order.created_at.strftime("%a, %d %b %Y")%></h5>
+          <h5></h5>
         </div>
         <div class="order-box-bottom">
           <h6><strong>order: </strong><%= order.state %></h6>
+          <h5>£<strong><%= order.amount_cents / 100%></strong></h5>
           <h6><strong>View order</strong></h6>
         </div>
       </div>
