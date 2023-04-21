@@ -13,9 +13,9 @@
               <%= image_tag "basket-icon.svg", class: "avatar dropdown-toggle"%>
             <% end %>
         <% end %>
+        <%= link_to "Order managment", order_managment_path, class: "nav-link #{"link-box" if current_page?(order_managment_path) || current_page?(order_managment_shop_path)}" %>
         <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <%= link_to "Order managment", order_managment_path, class: "dropdown-item" %>
 
           <%= link_to "Edit my Profile", edit_user_registration_path, class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
