@@ -13,7 +13,7 @@
             <i class="fa-solid fa-trash "></i>
           <% end %>
           <h5><%= item.product.name %></h5>
-          <p class="">Price: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
+          <p class="">Price: <strong><%= humanized_money_with_symbol(item.product.price * item.quantity) %></strong></p>
           <%= simple_form_for item, url: order_update_quantity_path(item), method: :post, html: { "data-controller": "auto-update" }  do |f| %>
             <%= f.hidden_field :id %>
             <%= f.simple_fields_for :line_items do |p| %>
@@ -35,10 +35,10 @@
     <% total_cost += item.product.price * item.quantity %>
   <% end %>
 
-    <%= form_with url: orders_path do %>
+  <%= form_with url: orders_path do %>
     <%= hidden_field_tag 'order_id', @order.id %>
-   <%= submit_tag "Confirm order: #{humanized_money_with_symbol(total_cost)}", class: 'next-button', id: 'basket-next-button' %>
-
+    <%= submit_tag "Confirm order: #{humanized_money_with_symbol(total_cost)}", class: 'next-button', id: 'basket-next-button' %>
   <% end %>
+
 </div>
 <%= render "shared/footer" %>
