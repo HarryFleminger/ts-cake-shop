@@ -66,9 +66,18 @@ class OrdersController < ApplicationController
   def order_completed
     @order = Order.find(params[:order_id])
     ShopOrderMailer.order_confirmation(@order).deliver_now
-    @order.state = "completed"
-    @order.save
     @shipping_address = retrieve_shipping_address(@order.checkout_session_id)
+    @order.state = "completed"
+    street = @shipping_address['address']['line1']
+    street += ', ' + @shipping_address['address']['line2'] if @shipping_address['address']['line2'].present?
+    @order.delivery_address = DeliveryAddress.create!(
+      city: @shipping_address['address']['city'],
+      street: street,
+      postcode: @shipping_address['address']['postal_code'],
+      user: current_user
+    )
+    @order.save
+    redirect_to user_order_url(current_user, @order)
   end
 
   def order_failed
