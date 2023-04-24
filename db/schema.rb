@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_134303) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_24_112710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_134303) do
     t.string "checkout_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "delivery_address_id"
+    t.index ["delivery_address_id"], name: "index_orders_on_delivery_address_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -159,6 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_134303) do
   add_foreign_key "delivery_addresses", "users"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
+  add_foreign_key "orders", "delivery_addresses"
   add_foreign_key "orders", "users"
   add_foreign_key "requests", "custom_cakes"
   add_foreign_key "requests", "delivery_addresses"
