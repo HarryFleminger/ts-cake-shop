@@ -4,10 +4,10 @@
   <h1 id="basket-h1">Basket</h1>
   <div class="basket-products-grid">
       <% @order.line_items.each_with_index do |item, index| %>
-    <div class="basket-product-card">
-        <div class="image-container">
-          <%= cl_image_tag item.product.photos.first.key, class: "" %>
-        </div>
+        <div class="basket-product-card">
+          <div class="image-container">
+            <%= cl_image_tag item.product.photos.first.key, class: "" %>
+          </div>
         <div class="basket-product-card-details">
           <%=link_to product_line_item_path(item.product, item), data: {turbo_method: :delete, turbo_confirm: "Remove `#{item.product.name}` from your basket?"}, class: "position-top-right remove-product-box" do %>
             <i class="fa-solid fa-trash "></i>

@@ -1,18 +1,22 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<div data-controller="line-item" class="container">
-  <h1>Order for: <%=@order.created_at.strftime("%a, %d %b %Y")%></h1>
-  <div class="row">
-    <% @order.line_items.each do |item| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= item.product.name %></h5>
-            <%= cl_image_tag item.product.photos.first.key, height: 300, width: 300, crop: :fill, class: "card-image" %>
-            <p class="card-price">Price: <%= humanized_money_with_symbol(item.product.price) %></p>
-            <p class="card-price">Quantity: <%= item.quantity if item.quantity  %></p>
-            <p class="card-price">Total: <%= humanized_money_with_symbol(item.product.price * item.quantity) %></p>
-          </div>
+<div class="main-container">
+  <h1 id="basket-h1">Ordered on: <%=@order.created_at.strftime("%a, %d %b %Y")%></h1>
+  <div class="form-header-back" id="order-managment-back">
+    <%= link_to order_managment_shop_path, class: "back-button", id: "back-button-shop" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+</div>
+  <div class="basket-products-grid" >
+    <% @order.line_items.each_with_index do |item, index| %>
+      <div class="basket-product-card" id="order-manegment-card">
+        <div class="image-container">
+          <%= cl_image_tag item.product.photos.first.key, class: "" %>
+        </div>
+        <div class="basket-product-card-details">
+          <h5><%= item.product.name %></h5>
+          <p></p>Quantity: <%= item.quantity %></p>
+          <p class="">Price: <strong><%= humanized_money_with_symbol(item.product.price * item.quantity) %></strong></p>
         </div>
       </div>
     <% end %>

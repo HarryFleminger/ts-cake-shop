@@ -2,6 +2,9 @@
 <%= render "shared/header" %>
   <div class="summary-header">
     <h1>Custom Cake - <%= request.custom_cake.name %></h1>
+        <%= link_to order_managment_path, class: "back-button" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
     <h4>Thanks for ordering!</h3>
     <h4><strong>Request:</strong>
       <span

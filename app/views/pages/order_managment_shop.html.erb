@@ -8,10 +8,10 @@
 <div class="orders-container">
   <% @orders.each do |order| %>
     <%= link_to user_order_url(current_user, order), style: "text-decoration: none; color: black;", class: "max-width" do %>
-      <div class="order-box">
+      <div class="order-box" id="shop-order-bgcolor">
         <div class="order-box-top">
           <h5></h5>
-          <h5 id="lengthen-width">Order for: <%=order.created_at.strftime("%a, %d %b %Y")%></h5>
+          <h5 id="lengthen-width">Ordered on: <%=order.created_at.strftime("%a, %d %b %Y")%></h5>
           <h5></h5>
         </div>
         <div class="order-box-bottom">

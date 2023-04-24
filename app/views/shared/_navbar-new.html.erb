@@ -7,9 +7,12 @@
           <%# <% if current_user.admin? %>
             <%# <%= link_to "New cake", "/products/new", class: "nav-link" %>
           <%# <% end %>
-        <%= link_to "Order managment", order_managment_path, class: "nav-link #{"link-box" if current_page?(order_managment_path) || current_page?(order_managment_shop_path)}" %>
+        <%= link_to "Order managment", order_managment_path,
+        class: "nav-link #{"link-box" if current_page?(order_managment_path) || current_page?(order_managment_shop_path) || current_page?(user_order_path(user_id: current_user.id, id:  @order.present? ? @order.id : 1)) || current_page?(request_path(id:  @request.present? ? @request.id : 1))}"  %>
+
       <% if user_signed_in? %>
-        <% if current_user.orders.where(state: 'pending').last.present? %>
+       <% basket = current_user.orders.where(state: 'pending').last if current_user.orders.where(state: 'pending').last.present? %>
+        <% if basket.present? && basket.line_items.present? %>
             <%= link_to  "/orders/#{current_user.orders.last.id}", class: "nav-link" do %>
               <%= image_tag "basket-icon.svg", class: "avatar dropdown-toggle"%>
             <% end %>
