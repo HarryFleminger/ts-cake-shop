@@ -1,13 +1,15 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
 <div class="main-container">
+<div class="title-container">
   <h1 id="basket-h1">Ordered on: <%=@order.created_at.strftime("%a, %d %b %Y")%></h1>
   <div class="form-header-back" id="order-managment-back">
     <%= link_to order_managment_shop_path, class: "back-button", id: "back-button-shop" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
+  </div>
 </div>
-  <div class="basket-products-grid" >
+  <div class="basket-products-grid" id=<%= @order.line_items.length == 1 ? "if-only-one-product" : "" %> >
     <% @order.line_items.each_with_index do |item, index| %>
       <div class="basket-product-card" id="order-manegment-card">
         <div class="image-container">
@@ -20,5 +22,14 @@
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="delivery-address-container">
+    <div class="delivery-address-card">
+      <h5>DELIVERY ADDRESS</h5>
+      <h6><em><%= @current_user.first_name + " " + current_user.last_name %></em></h6>
+      <p id="address-street-tag"><%= @order.delivery_address.street.upcase %></p>
+      <p><%= @order.delivery_address.city %></p>
+      <p><%= @order.delivery_address.postcode %></p>
+    </div>
   </div>
 </div>
