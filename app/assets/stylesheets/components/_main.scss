@@ -33,6 +33,15 @@ html, body {
   form {
     width: 100%;
   }
+  input:nth-child(5) {
+    width: 50%;
+    margin-left: 25%;
+  }
+  #basket-next-button {
+
+    width: 50%;
+    margin-left: 25%;
+  }
 }
 :root {
   --bs-link-hover-color: black;

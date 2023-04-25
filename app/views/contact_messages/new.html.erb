@@ -8,7 +8,7 @@
     <br>
     <%= f.input :subject, label: "Subject", required: true %>
     <%= f.input :message, label: "Message", as: :text, required: true, class: "width-100p" %>
-    <%= f.submit "Send", class: "next-button" %>
+    <%= f.submit "Send", class: "add-to-basket-button", id: "basket-next-button" %>
   <% end %>
 </div>
   <%= render "shared/footer"%>
