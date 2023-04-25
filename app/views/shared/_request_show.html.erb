@@ -1,38 +1,43 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
   <div class="summary-header">
-    <h1>Custom Cake - <%= request.custom_cake.name %></h1>
-        <%= link_to order_managment_path, class: "back-button" do %>
+    <div class="title-container">
+  <h1 id="request-h1">Custom Cake - <%=request.custom_cake.name%></h1>
+  <div class="form-header-back" id="request-managment-back">
+    <%= link_to order_managment_path, class: "back-button", id: "back-button-shop" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
+  </div>
+</div>
     <h4>Thanks for ordering!</h3>
-    <h4><strong>Request:</strong>
-      <span
-      id="<%= if request.status == "pending"
-        "status-pending"
-        elsif request.status == "in progress"
-        "status-in-progress"
-        elsif request.status == "Completed"
-        "status-completed"
-        else
-          ""
-        end%>"><%=request.status%>
-      </span>
-    </h4>
-    <h4><strong>Paid Status:</strong> <span id = "<%= if request.paid_status == "paid"
-        "status-paid"
-        elsif request.paid_status == "unpaid"
-        "status-unpaid"
-        else
-          ""
-        end %>"
-        ><%= request.paid_status.capitalize %></span></h4>
-    <% if request.status == "pending" && request.paid_status == "unpaid" %>
-        <h6>We'll get back to you within 24 hours for conformation and payment</h6>
-      <% elsif request.status == "in progress" && request.paid_status == "unpaid" %>
-        <h6>Please check your email, we have sent you a payment link</h6>
-    <% end %>
-
+    <div class="status-container">
+      <h4><strong>Request:</strong>
+        <span
+        id="<%= if request.status == "pending"
+          "status-pending"
+          elsif request.status == "in progress"
+          "status-in-progress"
+          elsif request.status == "Completed"
+          "status-completed"
+          else
+            ""
+          end%>"><%=request.status%>
+        </span>
+      </h4>
+      <h4><strong>Paid Status:</strong> <span id = "<%= if request.paid_status == "paid"
+          "status-paid"
+          elsif request.paid_status == "unpaid"
+          "status-unpaid"
+          else
+            ""
+          end %>"
+          ><%= request.paid_status.capitalize %></span></h4>
+    </div>
+      <% if request.status == "pending" && request.paid_status == "unpaid" %>
+          <em><h6>We'll get back to you within 24 hours for conformation and payment</h6></em>
+        <% elsif request.status == "in progress" && request.paid_status == "unpaid" %>
+          <em><h6>Please check your email, we have sent you a payment link</h6></em>
+      <% end %>
   </div>
 <div class="summary-container">
   <div class="left-summary">
