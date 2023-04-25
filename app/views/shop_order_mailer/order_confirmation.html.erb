@@ -4,6 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Confirmation</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h4 {
+      color: #444;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
   <h1>Hi <%= @user.first_name %>,</h1>
@@ -13,38 +41,46 @@
   <p>
     Here are the details of your order:
   </p>
-  <ul>
-    <li>Order Date: <%= @order.created_at.strftime("%B %d, %Y") %></li>
-  </ul>
+
+    <h4 style="margin-bottom: -10px;">Order Date: <%= @order.created_at.strftime("%B %d, %Y") %></h4>
+
   <p>
     Items in your order:
   </p>
   <table>
-    <thead>
+  <thead>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: center;">Quantity</th>
+      <th style="text-align: right;">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |item| %>
       <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Price</th>
+        <td style="text-align: left;"><%= item.product.name %></td>
+        <td style="text-align: center;"><%= item.quantity %></td>
+        <td style="text-align: right;"><%= number_to_currency(item.product.price, unit: "£") %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @order.line_items.each do |item| %>
-        <tr>
-          <td><%= item.product.name %></td>
-          <td><%= item.quantity %></td>
-          <td><%= number_to_currency(item.product.price) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
+
    <p>Price Total: <%= @order.amount_cents / 100 %> GBP</p>
+      <div class="">
+      <h4 style="margin-bottom: -10px;">DELIVERY ADDRESS</h4>
+      <p style="margin-bottom: -10px;"><%= @user.first_name + " " + @user.last_name %></p>
+      <p style="margin-bottom: -10px;"><%= @order.delivery_address.street.upcase %></p>
+      <p style="margin-bottom: -10px;"><%= @order.delivery_address.city %></p>
+      <p style=""><%= @order.delivery_address.postcode %></p>
+    </div>
   <p>
     If you have any questions or need to make changes to your order, please contact us as soon as possible.
   </p>
   <p>
     Best regards,
     <br>
-    Your Shop Team
+    TeeBakes&Cakes
   </p>
 </body>
 </html>

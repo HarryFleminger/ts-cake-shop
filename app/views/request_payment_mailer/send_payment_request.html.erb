@@ -1,5 +1,44 @@
-  <h1>TeeBakes&Cakes Payment Request</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Request</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h4 {
+      color: #444;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Payment Request: <%= @request.custom_cake.name.upcase %> Custom Cake </h1>
   <p>Hello <%= @user.first_name %>,</p>
-  <p>TeeBakes&Cakes has accepted your request for <%= @request.custom_cake.name %>. To complete your order, please click the following link:</p>
-  <p><a href="<%= @stripe_url %>" target="_blank">Pay now!</a></p>
+  <p>We have accepted your order for the <%= @request.custom_cake.name %> custom cake with your design. <br>To complete your order, please click and pay with the following link:</p>
+  <div style="display:block;">
+    <p><a href="<%= @stripe_url %>" target="_blank" style="width: 167px; text-align: center; background-color: #FDD0CF; border: 1px solid black; text-decoration: none; color: black; padding: 5px;display:block;">Pay now!</a></p>
+  </div>
   <p>Thank you for choosing TeeBakes&Cakes!</p>
+</body>
