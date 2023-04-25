@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :orders, only: [:show, :index]
+    post 'orders/order_sent', to: 'orders#order_sent', as: :order_sent
     resources :requests, only: [:show, :index]
   end
   resources :contact_messages, only: [:new, :create]

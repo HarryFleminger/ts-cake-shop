@@ -1,13 +1,13 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<div class="main-container main-margin-top-bottom">
+<div class="main-container main-margin-top-bottom contact-form-flex">
   <%= simple_form_for @contact_message do |f| %>
     <%= f.input :name, label: "Name", required: true %>
     <%= f.input :email, label: "Email", required: true %>
     <%= f.input :phone, label: "Phone" %>
     <br>
     <%= f.input :subject, label: "Subject", required: true %>
-    <%= f.input :message, label: "Message", as: :text, required: true %>
+    <%= f.input :message, label: "Message", as: :text, required: true, class: "width-100p" %>
     <%= f.submit "Send", class: "next-button" %>
   <% end %>
 </div>

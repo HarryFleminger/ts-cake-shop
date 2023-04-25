@@ -20,6 +20,19 @@ html, body {
 }
 .main-margin-top-bottom{
   margin-block: 25px;
+  .text {
+    width: 101.5%;
+  }
+}
+.contact-form-flex{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  form {
+    width: 100%;
+  }
 }
 :root {
   --bs-link-hover-color: black;

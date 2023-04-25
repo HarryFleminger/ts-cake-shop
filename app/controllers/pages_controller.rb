@@ -16,9 +16,9 @@ class PagesController < ApplicationController
 
   def order_managment_shop
     if current_user.admin
-      @orders = Order.order.where(state: "completed").order(created_at: :desc)
+      @orders = Order.all.where(state: "sent").or(current_user.orders.where(state: "paid")).order(created_at: :desc)
     else
-      @orders = current_user.orders.where(state: "completed").order(created_at: :desc)
+      @orders = current_user.orders.where(state: "sent").or(current_user.orders.where(state: "paid")).order(created_at: :desc)
 
     end
   end

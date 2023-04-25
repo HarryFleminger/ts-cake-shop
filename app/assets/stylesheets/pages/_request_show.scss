@@ -60,3 +60,29 @@
   display: block;
   top: -3px;
 }
+
+#request-accept-btn {
+  background-color: #76CB42;
+  &:hover {
+    background-color: #FFFBEF;
+  }
+}
+#request-decline-btn {
+  background-color: #CF4444;
+  &:hover {
+    background-color: #FFFBEF;
+  }
+}
+.admin-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  form:nth-of-type(1) {
+    width: 100%;
+  }
+  form:nth-of-type(2) {
+    width: 50%;
+  }
+}

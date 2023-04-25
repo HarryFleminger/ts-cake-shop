@@ -82,14 +82,18 @@
         <p><strong>City</strong> - London</p>
         <p><strong>Postcode</strong> - T's POSTCODE</p>
       <% end %>
-      <% if request.status == "pending" || request.status == "rejected" && current_user.admin == true %>
-        <%= button_to "Accept", send_payment_path(request_id: request), class: "accept-payment-button", id: "" %>
-        <%= button_to "Decline", reject_request_path(request_id: request), class: "decline-payment-button", id: "" %>
-      <% end %>
-      <% if request.status != "Completed" && request.paid_status == "paid" && current_user.admin == true%>
-        <%= button_to 'Order completed', request_status_path(request_id: request, status: "completed"), class: "complete-request-button" %>
-      <% end %>
-
+      <div class="admin-buttons-container">
+        <% if current_user.admin? && request.status == "pending" || request.status == "rejected"  %>
+          <%= button_to "Accept", send_payment_path(request_id: request), class: "add-to-basket-button", id: "request-accept-btn" %>
+          <%= button_to "Decline", reject_request_path(request_id: request), class: "add-to-basket-button", id: "request-decline-btn" %>
+        <% end %>
+        <% if current_user.admin? && request.status == "in progress" || request.status == "rejected"  %>
+          <%= button_to "Resend payment?", send_payment_path(request_id: request), class: "add-to-basket-button", id: "request-accept-btn" %>
+        <% end %>
+        <% if  current_user.admin? && request.status != "Completed" && request.paid_status == "paid"%>
+          <%= button_to 'Order completed?', request_status_path(request_id: request, status: "completed"), class: "add-to-basket-button", id: "request-decline-btn" %>
+        <% end %>
+      </div>
   </div>
 </div>
     <%= render "shared/footer"%>

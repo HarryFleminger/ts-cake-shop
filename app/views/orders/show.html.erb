@@ -32,4 +32,9 @@
       <p><%= @order.delivery_address.postcode %></p>
     </div>
   </div>
+  <div class="admin-button-container">
+    <% if  current_user.admin? && @order.state == "completed" %>
+      <%= button_to 'Order completed?', user_order_sent_path(order_id: @order, user_id: @order.user), class: "add-to-basket-button", id: "order-completed-btn" %>
+    <% end %>
+  </div>
 </div>
