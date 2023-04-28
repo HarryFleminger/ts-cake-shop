@@ -71,9 +71,8 @@ class OrdersController < ApplicationController
 
   def order_completed
     @order = Order.find(params[:order_id])
-    ShopOrderMailer.order_confirmation(@order).deliver_now
     @shipping_address = retrieve_shipping_address(@order.checkout_session_id)
-    @order.state = "paid"
+    @order.state = "In progress"
     street = @shipping_address['address']['line1']
     street += ', ' + @shipping_address['address']['line2'] if @shipping_address['address']['line2'].present?
     @order.delivery_address = DeliveryAddress.create!(
@@ -83,6 +82,7 @@ class OrdersController < ApplicationController
       user: current_user
     )
     @order.save
+    ShopOrderMailer.order_confirmation(@order.user, @order, @order.delivery_address).deliver_now
     redirect_to user_order_url(current_user, @order)
   end
 

@@ -70,9 +70,9 @@
       <div class="">
       <h4 style="margin-bottom: -10px;">DELIVERY ADDRESS</h4>
       <p style="margin-bottom: -10px;"><%= @user.first_name + " " + @user.last_name %></p>
-      <p style="margin-bottom: -10px;"><%= @order.delivery_address.street.upcase %></p>
-      <p style="margin-bottom: -10px;"><%= @order.delivery_address.city %></p>
-      <p style=""><%= @order.delivery_address.postcode %></p>
+      <p style="margin-bottom: -10px;"><%= @delivery_address.street.upcase %></p>
+      <p style="margin-bottom: -10px;"><%= @delivery_address.city %></p>
+      <p style=""><%= @delivery_address.postcode %></p>
     </div>
   <p>
     If you have any questions or need to make changes to your order, please contact us as soon as possible.
