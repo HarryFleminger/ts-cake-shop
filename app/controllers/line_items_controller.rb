@@ -19,6 +19,7 @@ class LineItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
+    product.in_stock = false if product.stock_count == 0
     current_order = current_user.orders.where(state: 'pending')
     if current_order.empty?
       new_order = Order.create(id: Order.all.count + 1, user: current_user)

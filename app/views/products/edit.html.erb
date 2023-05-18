@@ -10,6 +10,9 @@
   <%= simple_form_for (@product) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :stock_count %>
+    <%= f.input :in_stock %>
+
     <%= f.input :price_cents %>
     <%= f.input :photos, as: :file, input_html: { multiple: true, overwrite: false } %>
     <%= f.button :submit, "Edit Product" %>

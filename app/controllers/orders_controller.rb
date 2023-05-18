@@ -71,6 +71,11 @@ class OrdersController < ApplicationController
 
   def order_completed
     @order = Order.find(params[:order_id])
+    @order.line_items.each do |item|
+      item.product.stock_count -= item.quantity
+      item.product.in_stock = false if item.product.stock_count.zero?
+      item.product.save
+    end
     @shipping_address = retrieve_shipping_address(@order.checkout_session_id)
     @order.state = "In progress"
     street = @shipping_address['address']['line1']

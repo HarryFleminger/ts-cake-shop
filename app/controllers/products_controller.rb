@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:body, :name, :description, :price_cents, :id, line_items_attributes: [:quantity], photos: [])
+    params.require(:product).permit(:body, :name, :description, :price_cents, :id, :stock_count, :in_stock , line_items_attributes: [:quantity], photos: [])
   end
 
   def check_admin
