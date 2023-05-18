@@ -25,7 +25,7 @@
       <%= f.submit "Add to basket £", class: "add-to-basket-button ", data: { target: "increments.basket" } %>
       <% end %>
       <% if current_user.try(:admin?) %>
-      <%= link_to "edit", edit_product_path(@product) %>
+      <%= link_to "Edit product (admin only)", edit_product_path(@product), class: "add-to-basket-button", id: "edit-product-button" %>
       <% end %>
     </div>
   </div>

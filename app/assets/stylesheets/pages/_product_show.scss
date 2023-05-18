@@ -68,6 +68,7 @@
   &:hover {
     background-color: #FDD0CF;
   }
+  margin-bottom: 25px;
 }
 .counter-box {
   width: 151px;
@@ -114,4 +115,13 @@
 .icon-down {
   transform: rotate(0deg);
   transition: transform 0.3 ease-in-out;
+}
+
+#edit-product-button {
+  color: black;
+  margin-top: 20px;
+  padding: 5px;
+  &:hover {
+    background-color: #eb7371;
+  }
 }

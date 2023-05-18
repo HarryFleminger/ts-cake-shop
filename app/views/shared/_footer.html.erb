@@ -1,32 +1,27 @@
 <div class="footer-container-top">
   <div class="back-to-top-container">
-    <div class="back-to-top">
+    <%= link_to("#", class: "back-to-top", onclick: "scrollToTop()") do %>
       <i class="fa-solid fa-chevron-up fa-xl"></i>
       <p>Back to top</p>
-    </div>
+    <% end %>
   </div>
 
   <div class="main-footer-content-container">
     <div class="footer-content">
       <p class="footer-titles">STAY CONNECTED</p>
-      <div class="social">
+      <%= link_to ("https://www.instagram.com/teebakesandcakes/?hl=en"), class: "social", target: "_blank" do %>
         <i class="fa-brands fa-instagram fa-xl"></i>
         <p>Instagram</p>
-      </div>
-      <div class="social">
+      <% end %>
+      <%= link_to ("https://www.facebook.com/teebakesandcakes"), class: "social", target: "_blank" do %>
         <i class="fa-brands fa-square-facebook fa-xl"></i>
         <p>Facebook</p>
-      </div>
+      <% end %>
     </div>
 
     <div class="footer-content">
       <p class="footer-titles" >THE BUTTERCREAM SPECIALIST</p>
-      <p id="footer-buttercream-content">I am the buttercream master. I`ve been working on my recipe for almost a decade. </p>
-    </div>
-    <div id="links-size" class="footer-content">
-      <p class="footer-titles">LINKS</p>
-      <p id="reduce-margin">Get in touch</p>
-      <p>About us</p>
+      <p id="footer-buttercream-content">I am the buttercream master! I`ve been working on my recipe for almost a decade. </p>
     </div>
   </div>
   <div class="stripe-container">
