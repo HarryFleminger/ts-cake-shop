@@ -9,20 +9,22 @@
       <h1><%= @product.name %></h1>
       <h5><strong>£<span data-increments-target="price"><%=@product.price%></span></strong></h5>
       <p class="small-label"> Description</p>
-      <p><%=@product.description  %></p>
+      <p><%= @product.description %></p>
+      <% if @product.in_stock?  %>
       <p class="small-label">Quantity</p>
-      <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product) ) do |f| %>
-      <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
-      <div class="flex-it">
-        <div data-action="click->increments#decrement" class=" decrement">
-          <p>-</p>
+        <%= simple_form_for([@product, @line_item], url: product_line_items_path(@product)) do |f| %>
+        <%= f.input :quantity, input_html: {style: 'display: none;', data: { target: "increments.quantity" }, value: 1} %>
+        <div class="flex-it">
+          <div data-action="click->increments#decrement" class=" decrement">
+            <p>-</p>
+          </div>
+          <p data-increments-target="show" class="counter-box">1</p>
+          <div data-action="click->increments#increment" class=" increment">
+            <p>+</p>
+          </div>
         </div>
-        <p data-increments-target="show" class="counter-box">1</p>
-        <div data-action="click->increments#increment" class=" increment">
-          <p>+</p>
-        </div>
-      </div>
-      <%= f.submit "Add to basket £", class: "add-to-basket-button ", data: { target: "increments.basket" } %>
+        <%= f.submit "Add to basket £", class: "add-to-basket-button ", data: { target: "increments.basket" } %>
+        <% end %>
       <% end %>
       <% if current_user.try(:admin?) %>
       <%= link_to "Edit product (admin only)", edit_product_path(@product), class: "add-to-basket-button", id: "edit-product-button" %>

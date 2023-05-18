@@ -1,5 +1,10 @@
 <div class="product-card">
-  <%= cl_image_tag product.photos.first.key%>
+  <div class="position-relative">
+    <%= cl_image_tag product.photos.first.key, id: product.in_stock? ? "" : "out-of-stock" %>
+    <% if !product.in_stock? %>
+      <h2 class="OOS-over-image"><strong>Out Of Stock!</strong></h2>
+    <% end %>
+  </div>
   <h5 class="product-name-card"><%= product.name %></h5>
   <p>Price: <strong><%= humanized_money_with_symbol(product.price) %></strong></p>
 </div>
