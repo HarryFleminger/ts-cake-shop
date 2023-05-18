@@ -1,9 +1,15 @@
 <%= render "shared/navbar-new" %>
 <%= render "shared/header" %>
-<div data-controller="increments" class="main-container ">
+  <div class="product-back">
+    <%= link_to products_path, class: "back-button", id: "back-button-shop" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+  </div>
+<div data-controller="increments" class="main-container" style="margin-top: 59px;">
   <div class="product-show-main">
-    <% @product.photos.each do |photo|%>
-    <%= cl_image_tag photo.key%>
+        <%= cl_image_tag @product.photos.first.key, id: @product.in_stock? ? "" : "out-of-stock" %>
+    <% if !@product.in_stock? %>
+      <h2 class="OOS-over-image" id="absolute-show"><strong>Out Of Stock!</strong></h2>
     <% end %>
       <div class="product-show-details">
       <h1><%= @product.name %></h1>

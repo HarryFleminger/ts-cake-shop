@@ -5,14 +5,12 @@
   <br> Apologies for the inconvenience</p>
   <% @product.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
-    <h3><%=photo.id %></h3>
   <% end %>
   <%= simple_form_for (@product) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :stock_count %>
     <%= f.input :in_stock %>
-
     <%= f.input :price_cents %>
     <%= f.input :photos, as: :file, input_html: { multiple: true, overwrite: false } %>
     <%= f.button :submit, "Edit Product" %>
