@@ -1,8 +1,9 @@
 
 .header-flex-title-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  gap: 35px;
   margin-bottom: 20px;
   padding-inline: 15%;
   margin-block: 25px;

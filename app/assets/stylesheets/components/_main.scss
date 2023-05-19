@@ -103,7 +103,21 @@ html, body {
       gap: 17px;
     }
   }
-
+  .header-flex-title-buttons.header-flex-title-buttons {
+    padding-inline: 3%;
+    gap: 35px;
+    justify-content: center;
+    h2 {
+      width: 258px;
+    }
+  }
+  .orders-container.orders-container {
+    padding-inline: 3%;
+    justify-content: center;
+  }
+  .order-box.order-box {
+    width: 676px;
+  }
 }
 
 @media (max-width: 719px) {
@@ -176,6 +190,35 @@ html, body {
   .new_contact_message{
     padding-inline: 10%;
     padding-right: 14%;
+  }
+
+  .header-flex-title-buttons.header-flex-title-buttons {
+    padding-inline: 3%;
+    gap: 35px;
+    justify-content: center;
+    h2 {
+      width: 258px;
+    }
+  }
+
+
+  .order-box.order-box {
+    width: 488px;
+    h5 {
+      font-size: 16px;
+    }
+    h6 {
+      font-size: 12px;
+    }
+    #lengthen-width#lengthen-width {
+      width: 64%;
+    }
+  }
+  .request-button.request-button {
+    width: 290px;
+  }
+  .shop-button.shop-button {
+    width: 290px;
   }
 }
 
@@ -252,5 +295,36 @@ html, body {
     justify-content: space-between;
     gap: 0px;
     padding-inline: 12px;
+  }
+
+  .order-box.order-box {
+    width: 373px;
+    h5 {
+      font-size: 16px;
+    }
+    h6 {
+      font-size: 12px;
+    }
+    #lengthen-width#lengthen-width {
+      width: 100%;
+    }
+    .order-box-top.order-box-top {
+      width: 359px;
+    }
+    .order-box-bottom.order-box-bottom {
+      width: 359px;
+    }
+  }
+  .request-button.request-button {
+    width: 290px;
+  }
+  .shop-button.shop-button {
+    width: 290px;
+  }
+  .header-flex-title-buttons.header-flex-title-buttons {
+    a {
+      text-align: center;
+      line-height: 14px;
+    }
   }
 }
