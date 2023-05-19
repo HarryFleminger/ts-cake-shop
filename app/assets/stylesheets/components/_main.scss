@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0;
+  min-width: 395px;
 }
 #status-pending {
   color: #CF4444;
@@ -93,6 +94,16 @@ html, body {
   .product-card {
     min-width: 224px;
   }
+  .parallax-container {
+    .text-ad {
+      gap: 20px;
+      padding-inline: 3%;
+    }
+    .ad {
+      gap: 17px;
+    }
+  }
+
 }
 
 @media (max-width: 701px) {
@@ -102,6 +113,63 @@ html, body {
   .main-container {
     padding-inline: 3%;
   }
+  .navbar-container {
+    padding-inline: 4%;
+  }
+  .parallax-container.parallax-container {
+    height: 400px;
+    .text-ad {
+      padding-inline: 3%;
+      height: 160px;
+      p {
+        font-size:10px;
+      }
+    }
+    .ad {
+      gap: 10px;
+    }
+  }
+  .parallax-container.parallax-container {
+    #ad-left {
+      img {
+        width: 35px;
+      }
+    }
+    #ad-middle {
+      img {
+        width: 29px;
+      }
+    }
+    #ad-right {
+      img {
+        width: 26px;
+      }
+    }
+  }
+  .footer-container-top.footer-container-top {
+    height: 384px;
+    justify-content: end;
+    gap: 40px;
+  }
+  .main-footer-content-container.main-footer-content-container {
+    padding-inline: 0%;
+  }
+  .stripe-container.stripe-container {
+    padding-inline: 0%;
+    margin-bottom: 8px;
+  }
+  .payment-methods.payment-methods {
+    justify-content: space-between;
+    gap: 12px;
+    padding-inline: 8%;
+  }
+  .stripe.stripe {
+    margin-right: 7px;
+    margin-right: 8%;
+  }
+  .fa-6x.fa-6x {
+    font-size: 5em;
+}
 }
 
 
@@ -124,5 +192,58 @@ html, body {
   .main-container {
     padding-inline: 3%;
   }
+  .header-menus {
+    min-width: 225px;
+  }
+  .parallax-container.parallax-container {
+    height: 400px;
+    .text-ad {
+      padding-inline: 3%;
+      height: 160px;
+      gap: 7px;
+      justify-content: space-around;
+      p {
+        font-size:10px;
+      }
+    }
 
+  }
+  .ad-left {
+    img {
+      width: 35px;
+    }
+  }
+  .ad-middle {
+    img {
+      width: 29px;
+    }
+  }
+  .ad-right {
+    img {
+      width: 26px;
+    }
+  }
+  .footer-container-top.footer-container-top {
+    p {
+      font-size: 10px;
+    }
+    padding-inline: 6px;
+    height: 324px;
+  }
+  .main-footer-content-container.main-footer-content-container {
+    min-width: 150px;
+    height: 100px;
+  }
+  #footer-buttercream-content#footer-buttercream-content {
+    width: 217px;
+  }
+  .icons.icons {
+    display: flex;
+    gap: 5px;
+  }
+  .payment-methods.payment-methods {
+    justify-content: space-between;
+    gap: 0px;
+    padding-inline: 12px;
+  }
 }
