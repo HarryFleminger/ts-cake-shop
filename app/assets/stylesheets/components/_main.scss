@@ -1,5 +1,5 @@
 html, body {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   margin: 0;
 }
@@ -68,6 +68,7 @@ html, body {
   border: 0.5px solid rgba(0, 0, 0, 0.269);
   padding: 15px;
   box-shadow:0px 0px 16px rgba(0, 0, 0, 0.03);
+  min-width: 260px;
 }
 .product-card p {
   text-align: center;
@@ -83,4 +84,45 @@ html, body {
 .products-shown {
   margin-block: 25px;
   font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .product-card {
+    min-width: 224px;
+  }
+}
+
+@media (max-width: 701px) {
+  .main-grid {
+    gap: 10px;
+  }
+  .main-container {
+    padding-inline: 3%;
+  }
+}
+
+
+@media (max-width: 485px) {
+  .main-grid {
+    gap: 10px;
+  }
+  .product-card {
+    min-width: 166px;
+    h5 {
+      font-size: 0.87rem;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+  .main-container {
+    padding-inline: 3%;
+  }
+
 }
