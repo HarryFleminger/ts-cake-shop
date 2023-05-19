@@ -106,7 +106,7 @@ html, body {
 
 }
 
-@media (max-width: 701px) {
+@media (max-width: 719px) {
   .main-grid {
     gap: 10px;
   }
@@ -169,7 +169,10 @@ html, body {
   }
   .fa-6x.fa-6x {
     font-size: 5em;
-}
+  }
+  .main-grid {
+    margin-bottom: 50px;
+  }
 }
 
 
