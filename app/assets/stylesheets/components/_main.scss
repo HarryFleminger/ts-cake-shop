@@ -105,14 +105,14 @@ html, body {
 }
 
 
-@media (max-width: 485px) {
+@media (max-width: 523px) {
   .main-grid {
     gap: 10px;
   }
   .product-card {
     min-width: 166px;
     h5 {
-      font-size: 0.87rem;
+      font-size: 0.8rem;
     }
     h2 {
       font-size: 18px;
