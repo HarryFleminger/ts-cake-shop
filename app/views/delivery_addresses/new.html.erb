@@ -1,19 +1,24 @@
 <%= render "shared/request_header" %>
-<div class="form-header-back">
-    <%= link_to new_custom_cake_flavour_design_detail_path(@custom_cake, @flavour, @design_detail), class: "back-button" do %>
-     <i class="fa-solid fa-chevron-left"></i>
-    <% end %>
-</div>
-<div class="form-header-bread">
-    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
-    </svg>
-    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-     <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
-    </svg>
-    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="black"/>
-    </svg>
+
+<div class="form-header-outer" style="gap:0; margin-block: 10px;">
+  <div class="form-header-back">
+      <%=  link_to new_custom_cake_flavour_design_detail_path(@custom_cake, @flavour, @design_detail), class: "back-button" do %>
+        <i class="fa-solid fa-chevron-left"></i>
+      <% end %>
+  </div>
+  <div class="centering-div">
+    <div class="form-header-bread">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="7" cy="7" r="7" fill="black"/>
+      </svg>
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+      </svg>
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="7" cy="7" r="7" fill="#D9D9D9"/>
+      </svg>
+    </div>
+  </div>
 </div>
 <div class="request-form-container">
   <div class="left-request-form">
@@ -39,11 +44,13 @@
     </div>
   </div>
   <div class="right-request-form">
-    <h2>Design ideas and details</h2>
-    <%= simple_form_for([@custom_cake, @flavour, @design_detail, @delivery_address]) do |f| %>
-      <%= f.input :street %>
-      <%= f.input :postcode %>
-      <%= f.input :city %>
-      <%= f.submit "Submit", class: "next-button" %>
+    <div class="sticky-container">
+      <h2>Delivery Address</h2>
+      <%= simple_form_for([@custom_cake, @flavour, @design_detail, @delivery_address]) do |f| %>
+        <%= f.input :street %>
+        <%= f.input :postcode %>
+        <%= f.input :city %>
+        <%= f.submit "Submit", class: "next-button" %>
     <% end %>
+    </div>
 </div>

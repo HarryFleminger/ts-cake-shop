@@ -3,7 +3,7 @@
 }
 .design-ideas {
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr  ;
   gap: 4px;
 }
 .design-idea-photo {
@@ -23,6 +23,7 @@
 .right-summary {
   width: 50%;
   margin: 0;
+  word-wrap: break-word;
 }
 .summary-header {
   display: flex;

@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  // height: 100%;
   width: 100%;
   margin: 0;
   min-width: 395px;
@@ -223,7 +223,28 @@ html, body {
 }
 
 
+@media (max-width: 950px) {
+  .form-header-outer.form-header-outer {
+    width: 50%;
+  }
+  .form-header-back.form-header-back {
+    padding-left: 20%;
+  }
+  #request-managment-back#request-managment-back{
+    margin-left: -10%;
+  }
+}
 @media (max-width: 523px) {
+  .request-form-container.request-form-container {
+    gap: 3%;
+    padding-inline: 3%;
+  }
+  .form-header-back.form-header-back {
+    padding-left: 7%;
+  }
+  .form-header-bread.form-header-bread{
+    margin-right: -10px;
+  }
   .main-grid {
     gap: 10px;
   }

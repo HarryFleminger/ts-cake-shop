@@ -6,7 +6,6 @@
   display: flex;
   gap: 60px;
   margin-bottom: 50px;
-  max-height: 100vh;
 }
 .left-request-form {
   width: 50%;
@@ -15,16 +14,26 @@
 .right-request-form {
   width: 50%;
   margin: 0;
-  max-height: 100%;
-
+  position: relative;
+}
+.sticky-container {
+  position: sticky;
+  z-index: 100;
+  top: 10px;
 }
 .flavour-links-flex {
+  position: sticky;
+  z-index: 100;
+  top: 11px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 10px;
   max-height: 85%;
+  h2 {
+    text-align: center;
+  }
 }
 .flavour-button {
   width: 100%;
@@ -89,21 +98,39 @@ input {
     background-color:#fdb9b8;
   }
 }
-
+.form-header-outer{
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 10px;
+  background-color: white;
+  width: 100%;
+}
+.centering-div {
+  width: 100%;
+}
 .form-header-back {
+  position: sticky;
+  top: 0;
+  z-index: 101;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-block: 11px;
-  padding-inline: 10%;
-  position: absolute;
+  padding-left: 10%;
+  margin-right: -10%;
 }
 .form-header-bread {
+  position: sticky;
+  z-index: 99;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-block: 25px;
-  padding-inline: 10%;
   gap: 30px;
 }
 
