@@ -98,7 +98,14 @@
   width: 50%;
 }
 
-
+#order-show-back {
+  padding-inline: 0px;
+  position: absolute;
+  justify-content: unset;
+  align-items: unset;
+  display: block;
+  top: -3px;
+}
 #order-manegment-card {
   margin-top: 30px;
 }

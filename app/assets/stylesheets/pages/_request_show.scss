@@ -3,7 +3,7 @@
 }
 .design-ideas {
   display: grid;
-  grid-template-columns: 1fr  ;
+  grid-template-columns: 1fr 1fr  ;
   gap: 4px;
 }
 .design-idea-photo {
@@ -15,6 +15,9 @@
   display: flex;
   gap: 60px;
   margin-block: 50px;
+  h3 {
+    font-weight: 700;
+  }
 }
 .left-summary {
   width: 50%;

@@ -3,7 +3,7 @@
 <div class="main-container">
 <div class="title-container">
   <h1 id="basket-h1">Ordered on: <%=@order.created_at.strftime("%a, %d %b %Y")%></h1>
-  <div class="form-header-back" id="order-managment-back">
+  <div class="form-header-back" id="order-show-back">
     <%= link_to order_managment_shop_path, class: "back-button", id: "back-button-shop" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
