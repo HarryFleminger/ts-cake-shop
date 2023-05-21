@@ -1,32 +1,31 @@
 <div class="parallax-container">
   <div class="parallax">
   </div>
-    <div class="text-ad">
-      <div class="ad" id="ad-left">
-        <%= image_tag "bike.svg" %>
-        <p class="ad-title">SHIPPING</p>
-        <p class="ad-text">Delivery across the whole of London</p>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="ad" id="ad-middle">
-        <%= image_tag "chef.svg" %>
-        <p class="ad-title">HOME MADE BY ME</p>
-        <p class="ad-text">Everything made with love and passion</p>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="ad" id="ad-right">
-        <%= image_tag "safe.svg" %>
-        <p class="ad-title">PAY 50% NOW, 50% LATER</p>
-        <p class="ad-text">Secure your order now!</p>
-      </div>
+  <div class="text-ad">
+    <div class="ad" id="ad-left">
+      <%= image_tag "bike.svg" %>
+      <p class="ad-title">SHIPPING</p>
+      <p class="ad-text">Delivery across the whole of London</p>
     </div>
-</div>
 
-<%# <script>
+  <div class="divider"></div>
+
+    <div class="ad" id="ad-middle">
+      <%= image_tag "chef.svg" %>
+      <p class="ad-title">HOME MADE BY ME</p>
+      <p class="ad-text">Everything made with love and passion</p>
+    </div>
+
+  <div class="divider"></div>
+
+    <div class="ad" id="ad-right">
+      <%= image_tag "safe.svg" %>
+      <p class="ad-title">PAY 50% NOW, 50% LATER</p>
+      <p class="ad-text">Secure your order now!</p>
+    </div>
+  </div>
+</div>
+<script>
   // Function to handle parallax effect on scroll
   function parallaxScroll() {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -35,11 +34,11 @@
     for (var i = 0; i < parallaxElements.length; i++) {
       var parallaxElement = parallaxElements[i];
       var parallaxOffset = scrollTop * 0.7; // Adjust the parallax effect speed as desired
-      parallaxElement.style.backgroundPositionY = parallaxOffset + 'px' - 100;
+      parallaxElement.style.backgroundPositionY = parallaxOffset - 900 + 'px';
     }
   }
 
   // Attach the parallaxScroll function to the scroll event
   window.addEventListener('scroll', parallaxScroll);
 
-</script> %>
+</script>
