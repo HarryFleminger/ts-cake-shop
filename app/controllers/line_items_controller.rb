@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:create]
+  before_action :check_logged_in, only: [:create]
   def destroy
     current_order = current_user.orders.where(state: 'pending').last
     line_item = LineItem.find(params[:id].to_i)
@@ -54,6 +55,12 @@ class LineItemsController < ApplicationController
 
   def product_params
     params.require(:product_id)
+  end
+
+  def check_logged_in
+    unless current_user.present?
+      redirect_back(fallback_location: root_path, alert: "Please login to continue.")
+    end
   end
 
 end
