@@ -1,0 +1,20 @@
+#mini-banner-container {
+  height: 44px;
+  background: linear-gradient(180deg, #FDD0CF 0%, #FFFBEF 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap : 5px;
+  border-bottom: 0px solid #000000;
+}
+.banner-text {
+  h1 {
+    font-family: 'Hahmlet';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 33px;
+    text-align: center;
+    font-variant: all-small-caps
+  }
+}

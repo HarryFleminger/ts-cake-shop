@@ -266,6 +266,11 @@ html, body {
   #order-show-back#order-show-back {
     top:-14px;
   }
+  .banner-text.banner-text {
+    h1 {
+      font-size: 15px;
+    }
+  }
 }
 
 
@@ -286,7 +291,8 @@ html, body {
     gap: 10px;
   }
   .product-card {
-    min-width: 166px;
+    min-width: 148px;
+    padding: 6px;
     h5 {
       font-size: 0.8rem;
     }
@@ -404,5 +410,26 @@ html, body {
     p {
       font-size: 12px;
     }
+  }
+  .banner-text.banner-text {
+    flex-grow: 1;
+    gap: 0px;
+    h1 {
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 0px;
+
+    }
+  }
+  .nav-link.nav-link {
+    font-size: 13px;
+  }
+  #mini-banner-container#mini-banner-container {
+    height: 33px;
+    padding-inline: 1px;
+    gap: 0px;
+  }
+  .sub-box.sub-box {
+    gap: 4px;
   }
 }
